@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kohza — Private Executive Briefing</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    "charcoal": "#0F0F0F",
+                    "paper": "#F4F3F0",
+                    "stone": "#E6E5E0",
+                    "signal": "#333333",
+                },
+                fontFamily: {
+                    "sans": ["Inter", "sans-serif"],
+                    "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                },
+                letterSpacing: {
+                    "technical": "0.25em",
+                },
+                maxWidth: {
+                    'desktop': '1440px'
+                },
+                animation: {
+                    'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    'blink': 'blink 1.5s step-start infinite',
+                    'drift': 'drift 20s linear infinite',
+                },
+                keyframes: {
+                    blink: {
+                        '0%, 100%': { opacity: '1' },
+                        '50%': { opacity: '0' },
+                    },
+                    drift: {
+                        '0%': { backgroundPosition: '0% 0%' },
+                        '100%': { backgroundPosition: '100% 100%' },
+                    }
+                }
+            },
+        },
+    }
+</script>
+<style type="text/tailwindcss">
+    @layer base {
+        body {
+            @apply bg-paper text-charcoal font-sans antialiased;
+        }
+    }
+    .technical-label {
+        @apply font-mono text-[9px] uppercase tracking-technical text-charcoal/50;
+    }
+    .border-hairline {
+        border-width: 0.5px;
+    }
+    .constellation-bg {
+        background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+        background-size: 32px 32px;
+    }
+    .scan-line {
+        background: linear-gradient(to bottom, transparent, rgba(26, 26, 26, 0.05), transparent);
+    }
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="selection:bg-charcoal/10 selection:text-charcoal flex flex-col min-h-screen relative overflow-x-hidden">
+<div class="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:block z-0 pointer-events-none">
+<div class="-rotate-90 origin-center text-[9px] font-mono tracking-[0.3em] text-charcoal/20 whitespace-nowrap">
+        CONFIDENTIAL BRIEFING DOCUMENT — ID: KHZ-99
+    </div>
+</div>
+<div class="fixed right-6 top-1/2 -translate-y-1/2 hidden xl:block z-0 pointer-events-none">
+<div class="rotate-90 origin-center text-[9px] font-mono tracking-[0.3em] text-charcoal/20 whitespace-nowrap">
+        ENCRYPTED CONNECTION // SECURE
+    </div>
+</div>
+<nav class="fixed top-0 w-full z-50 bg-paper/90 backdrop-blur-sm border-b border-charcoal/5">
+<div class="max-w-desktop mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+<div class="flex items-center gap-12">
+<span class="text-xl font-medium tracking-tight text-charcoal">kohza</span>
+<div class="hidden md:flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-blink"></span>
+<span class="technical-label text-charcoal/40">System Active</span>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="hidden md:block technical-label">Ref: 2024.01.24</span>
+<button class="border border-charcoal/20 px-6 py-2 text-[10px] uppercase tracking-widest hover:bg-charcoal hover:text-white transition-all duration-300">
+                Log In
+            </button>
+</div>
+</div>
+</nav>
+<main class="flex-grow pt-32 pb-20 px-6 md:px-12 max-w-desktop mx-auto w-full relative z-10">
+<header class="relative mb-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+<div class="absolute -top-20 -left-20 -right-20 -bottom-20 -z-10 opacity-30 overflow-hidden pointer-events-none">
+<div class="w-full h-full constellation-bg opacity-[0.15] animate-drift"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-paper via-transparent to-paper"></div>
+</div>
+<div class="lg:col-span-8 relative">
+<div class="flex items-start justify-between border-t border-charcoal/10 pt-4 mb-12">
+<div>
+<span class="technical-label block mb-1">Status</span>
+<div class="flex items-center gap-2">
+<span class="w-1 h-1 bg-charcoal rounded-full"></span>
+<span class="font-mono text-xs text-charcoal">Active</span>
+</div>
+</div>
+<div class="text-right">
+<span class="technical-label block mb-1">Timestamp</span>
+<span class="font-mono text-xs text-charcoal">2024.01.24 — 09:41:00 UTC</span>
+</div>
+</div>
+<h1 class="text-6xl md:text-8xl lg:text-[7rem] leading-[0.9] font-medium tracking-tighter text-charcoal mb-12">
+                Protect what <br/>
+<span class="text-charcoal/40">you teach.</span>
+</h1>
+<p class="text-xl md:text-2xl leading-relaxed text-charcoal/70 max-w-2xl font-light">
+                Infrastructure for the preservation of intellectual capital. Kohza eliminates piracy vectors at the network level.
+            </p>
+</div>
+<div class="lg:col-span-4 w-full h-full flex flex-col justify-end">
+<div class="grid grid-cols-2 border-t border-l border-charcoal/10 bg-white/50 backdrop-blur-sm">
+<div class="p-8 border-r border-b border-charcoal/10 relative group">
+<div class="absolute top-4 right-4 w-1 h-1 bg-charcoal/20 rounded-full group-hover:bg-green-500 transition-colors"></div>
+<span class="technical-label mb-4 block">Metric_01</span>
+<span class="text-3xl font-light tracking-tight block">99.9%</span>
+<span class="text-[10px] uppercase tracking-widest text-charcoal/40 mt-1 block">Uptime</span>
+</div>
+<div class="p-8 border-r border-b border-charcoal/10 relative group">
+<div class="absolute top-4 right-4 w-1 h-1 bg-charcoal/20 rounded-full group-hover:bg-green-500 transition-colors"></div>
+<span class="technical-label mb-4 block">Metric_02</span>
+<span class="text-3xl font-light tracking-tight block">0ms</span>
+<span class="text-[10px] uppercase tracking-widest text-charcoal/40 mt-1 block">Latency</span>
+</div>
+<div class="p-8 border-r border-b border-charcoal/10 relative group">
+<div class="absolute top-4 right-4 w-1 h-1 bg-charcoal/20 rounded-full group-hover:bg-green-500 transition-colors"></div>
+<span class="technical-label mb-4 block">Protocol</span>
+<span class="text-3xl font-light tracking-tight block">DRM-X</span>
+<span class="text-[10px] uppercase tracking-widest text-charcoal/40 mt-1 block">Active</span>
+</div>
+<div class="p-8 border-r border-b border-charcoal/10 relative group">
+<div class="absolute top-4 right-4 w-1 h-1 bg-charcoal/20 rounded-full group-hover:bg-green-500 transition-colors"></div>
+<span class="technical-label mb-4 block">Threats</span>
+<span class="text-3xl font-light tracking-tight block">None</span>
+<span class="text-[10px] uppercase tracking-widest text-charcoal/40 mt-1 block">Detected</span>
+</div>
+</div>
+</div>
+</header>
+<section class="mb-32 relative">
+<div class="flex justify-between items-end mb-4 px-1">
+<span class="technical-label">SECURE_BRIEFING_V2.MP4</span>
+<div class="flex gap-2">
+<span class="w-1 h-4 bg-charcoal/20"></span>
+<span class="w-1 h-4 bg-charcoal/40"></span>
+<span class="w-1 h-4 bg-charcoal/60"></span>
+<span class="w-1 h-4 bg-charcoal animate-pulse"></span>
+</div>
+</div>
+<div class="relative aspect-[21/9] w-full bg-black rounded-sm overflow-hidden group border border-charcoal/10">
+<div class="absolute inset-0 z-10 pointer-events-none border-[0.5px] border-white/10 m-4">
+<div class="absolute top-4 left-4 flex items-center gap-3">
+<span class="w-2 h-2 bg-red-500 rounded-full animate-blink"></span>
+<span class="font-mono text-[10px] text-white/70 tracking-widest uppercase">Recording Prohibited</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 flex items-center gap-4">
+<span class="font-mono text-[10px] text-white/50">STREAM_DATA</span>
+<div class="flex-grow h-1 flex gap-0.5 opacity-50">
+<div class="h-full w-1 bg-white/80"></div>
+<div class="h-full w-4 bg-white/60"></div>
+<div class="h-full w-2 bg-white/40"></div>
+<div class="h-full w-8 bg-white/20"></div>
+<div class="h-full w-full bg-white/10 relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 w-1/3 bg-white/20"></div>
+</div>
+</div>
+<span class="font-mono text-[10px] text-white/50">1080P_SECURE</span>
+</div>
+</div>
+<video autoplay="" class="w-full h-full object-cover opacity-80 mix-blend-screen" loop="" muted="" playsinline="" poster="https://placehold.co/1920x1080/0f0f0f/222222?text=Secure+Stream">
+<source src="https://videos.pexels.com/video-files/5453622/5453622-uhd_2560_1440_24fps.mp4" type="video/mp4"/>
+</video>
+<div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,11,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-20 bg-[length:100%_2px,3px_100%] pointer-events-none"></div>
+</div>
+</section>
+<section class="mb-32 grid lg:grid-cols-2 gap-24 border-t border-charcoal/10 pt-20">
+<div class="pr-12">
+<span class="technical-label mb-8 block text-charcoal">Algorithm Analysis</span>
+<h2 class="text-5xl font-medium tracking-tighter mb-8 text-charcoal">Signal Constellation™</h2>
+<p class="text-lg text-charcoal/60 leading-relaxed mb-12">
+                MAR (Multi-Algo Reporting) visualizes piracy threats as a dynamic network graph. Our constellation engine triangulates source servers, distribution nodes, and end-user leaks in real-time.
+            </p>
+<div class="grid grid-cols-2 gap-x-12 gap-y-8">
+<div>
+<span class="block text-3xl font-light tracking-tight mb-2">50ms</span>
+<span class="technical-label">Detection Latency</span>
+</div>
+<div>
+<span class="block text-3xl font-light tracking-tight mb-2">99.8%</span>
+<span class="technical-label">Takedown Success</span>
+</div>
+</div>
+</div>
+<div class="relative bg-charcoal h-[500px] w-full overflow-hidden border border-charcoal/10">
+<div class="absolute inset-0 opacity-40">
+<div class="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.8)_1px,_transparent_1px)] bg-[length:40px_40px] opacity-20"></div>
+<div class="absolute top-1/4 left-1/4 w-32 h-32 bg-white/5 rounded-full blur-2xl animate-pulse-slow"></div>
+<div class="absolute bottom-1/3 right-1/3 w-48 h-48 bg-white/5 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+<div class="absolute top-[20%] left-[20%] w-[40%] h-[0.5px] bg-white/20 rotate-12"></div>
+<div class="absolute top-[50%] left-[30%] w-[30%] h-[0.5px] bg-white/20 -rotate-6"></div>
+<div class="absolute bottom-[20%] right-[20%] w-[20%] h-[0.5px] bg-white/20 rotate-45"></div>
+<div class="absolute top-[20%] left-[20%] w-1.5 h-1.5 bg-white shadow-[0_0_10px_white] rounded-full"></div>
+<div class="absolute top-[30%] right-[35%] w-1 h-1 bg-white/50 rounded-full"></div>
+<div class="absolute bottom-[40%] left-[45%] w-1 h-1 bg-white/50 rounded-full"></div>
+</div>
+<div class="absolute bottom-6 left-6 font-mono text-[10px] text-white/40 tracking-widest uppercase">
+                Visualizing Node Traffic
+            </div>
+<div class="absolute top-6 right-6 font-mono text-[10px] text-white/40 tracking-widest uppercase text-right">
+                Sector 4 Active<br/>Scanning...
+            </div>
+</div>
+</section>
+<section class="mb-32 border-t border-charcoal/10">
+<div class="grid md:grid-cols-3 divide-x divide-charcoal/10">
+<div class="py-16 pr-12 group">
+<div class="mb-8 flex justify-between items-start">
+<span class="technical-label">01 // Defense</span>
+<span class="material-symbols-outlined text-charcoal/20 group-hover:text-charcoal transition-colors">shield</span>
+</div>
+<h3 class="text-xl font-medium mb-4">Screen Recording Block</h3>
+<p class="text-sm text-charcoal/60 leading-relaxed">
+                    Hardware-level DRM integration prevents capture software from initializing on protected content streams.
+                </p>
+</div>
+<div class="py-16 px-12 group">
+<div class="mb-8 flex justify-between items-start">
+<span class="technical-label">02 // Offense</span>
+<span class="material-symbols-outlined text-charcoal/20 group-hover:text-charcoal transition-colors">radar</span>
+</div>
+<h3 class="text-xl font-medium mb-4">Autonomous Removal</h3>
+<p class="text-sm text-charcoal/60 leading-relaxed">
+                    Crawlers identify leaked assets across indexers and file lockers, issuing DMCA requests instantly.
+                </p>
+</div>
+<div class="py-16 pl-12 group">
+<div class="mb-8 flex justify-between items-start">
+<span class="technical-label">03 // Asset</span>
+<span class="material-symbols-outlined text-charcoal/20 group-hover:text-charcoal transition-colors">currency_bitcoin</span>
+</div>
+<h3 class="text-xl font-medium mb-4">Revenue Retention</h3>
+<p class="text-sm text-charcoal/60 leading-relaxed">
+                    Designed for high-ticket educators where a single leak represents significant enterprise value loss.
+                </p>
+</div>
+</div>
+</section>
+<section class="py-32 flex justify-center text-center relative">
+<div class="absolute inset-x-0 top-1/2 h-px bg-charcoal/5 -z-10"></div>
+<div class="bg-paper px-12 max-w-4xl relative z-10">
+<p class="text-4xl md:text-5xl font-serif italic text-charcoal/90 leading-tight mb-8">
+                "Knowledge compounds.<br/>It should not be stolen."
+            </p>
+<span class="technical-label">— Kohza Philosophy</span>
+</div>
+</section>
+</main>
+<footer class="bg-white border-t border-charcoal/10 pt-24 pb-12">
+<div class="max-w-desktop mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
+<div class="col-span-1">
+<span class="text-xl font-bold tracking-tighter text-charcoal mb-8 block">kohza.</span>
+<p class="text-[10px] text-charcoal/40 font-mono leading-relaxed uppercase tracking-widest max-w-[200px]">
+                    Private Security Infrastructure for Digital Intelligence.<br/>
+                    San Francisco, CA<br/>
+                    Est. 2024
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="technical-label mb-2 text-charcoal/30">Platform</span>
+<a class="text-xs text-charcoal/60 hover:text-charcoal uppercase tracking-wider transition-colors" href="#">Intelligence</a>
+<a class="text-xs text-charcoal/60 hover:text-charcoal uppercase tracking-wider transition-colors" href="#">Protection</a>
+<a class="text-xs text-charcoal/60 hover:text-charcoal uppercase tracking-wider transition-colors" href="#">Pricing</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="technical-label mb-2 text-charcoal/30">Company</span>
+<a class="text-xs text-charcoal/60 hover:text-charcoal uppercase tracking-wider transition-colors" href="#">Manifesto</a>
+<a class="text-xs text-charcoal/60 hover:text-charcoal uppercase tracking-wider transition-colors" href="#">Careers</a>
+<a class="text-xs text-charcoal/60 hover:text-charcoal uppercase tracking-wider transition-colors" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="technical-label mb-2 text-charcoal/30">Legal</span>
+<a class="text-xs text-charcoal/60 hover:text-charcoal uppercase tracking-wider transition-colors" href="#">Terms of Service</a>
+<a class="text-xs text-charcoal/60 hover:text-charcoal uppercase tracking-wider transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs text-charcoal/60 hover:text-charcoal uppercase tracking-wider transition-colors" href="#">Security</a>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-end border-t border-charcoal/5 pt-8">
+<p class="text-[9px] uppercase tracking-widest text-charcoal/30 font-mono">
+                © 2024 Kohza Inc. All systems operational.
+            </p>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full border border-charcoal/20"></div>
+<div class="w-2 h-2 rounded-full border border-charcoal/20 bg-green-500/50"></div>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

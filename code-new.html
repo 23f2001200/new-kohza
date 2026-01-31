@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kohza — Private Executive Briefing</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1A1A1A",
+                        "background-light": "#F9F9F7",
+                        "ivory": "#FFFFFF",
+                        "charcoal": "#1A1A1A",
+                        "stone-muted": "#E2E2DE",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    letterSpacing: {
+                        "ultra-wide": "0.15em",
+                        "tighter": "-0.02em"
+                    },
+                    maxWidth: {
+                        'ultra': '1440px'
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-light text-charcoal font-sans antialiased;
+            }
+            h1, h2, h3, h4 {
+                @apply tracking-ultra-wide uppercase font-bold;
+            }
+        }
+        .container-xl {
+            @apply max-w-ultra mx-auto px-6 md:px-12 lg:px-16;
+        }
+        .executive-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-item {
+            @apply p-6 md:p-10 border-b border-r border-charcoal/10;
+        }.grid-item:nth-child(2n) {
+            @apply border-r-0;
+        }
+        .grid-item:nth-last-child(-n+2) {
+             @apply border-b-0;
+        }
+        .briefing-label {
+            @apply text-[10px] md:text-xs uppercase tracking-[0.2em] text-charcoal/40 font-bold mb-2 block;
+        }
+        .briefing-value {
+            @apply text-lg md:text-2xl font-semibold tracking-tight text-charcoal;
+        }
+        .divider-fine {
+            height: 1px;
+            @apply bg-charcoal/10 w-full;
+        }
+        .abstract-viz {
+            height: 2px;
+            @apply bg-charcoal/20 relative overflow-hidden;
+        }
+        .viz-bar {
+            @apply absolute inset-y-0 left-0 bg-charcoal;
+        }
+        .video-container {
+            @apply relative w-full aspect-video bg-charcoal/5 rounded-[12px] overflow-hidden border border-charcoal/10 shadow-2xl shadow-charcoal/5;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="selection:bg-charcoal selection:text-white flex flex-col min-h-screen">
+<nav class="sticky top-0 z-50 bg-background-light/95 backdrop-blur-md border-b border-charcoal/10">
+<div class="container-xl flex items-center justify-between py-6">
+<h2 class="text-base md:text-lg lowercase font-black tracking-tighter m-0">kohza.</h2>
+<div class="flex items-center gap-6">
+<span class="text-[10px] md:text-xs uppercase tracking-widest text-charcoal/50 font-bold hidden md:block">Ref: 2024.01 // Desktop Protocol</span>
+<span class="text-[10px] uppercase tracking-widest text-charcoal/50 font-bold md:hidden">Ref: 2024.01</span>
+<button class="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] bg-charcoal text-white px-6 py-2.5 rounded-[2px] hover:bg-charcoal/80 transition-colors">
+                    Access System
+                </button>
+</div>
+</div>
+</nav>
+<main class="flex-grow pt-20 md:pt-28">
+<header class="container-xl mb-24 md:mb-32">
+<div class="grid lg:grid-cols-12 gap-16 lg:gap-24 items-end">
+<div class="lg:col-span-7">
+<div class="flex items-center gap-3 mb-8">
+<span class="w-2 h-2 bg-charcoal"></span>
+<span class="briefing-label mb-0 text-charcoal/60">Confidential Executive Briefing</span>
+</div>
+<h1 class="text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-10 tracking-tighter normal-case font-bold text-charcoal">
+                Protect What <br/>You Teach.
+            </h1>
+<p class="text-base md:text-xl leading-relaxed text-charcoal/60 max-w-2xl">
+                Kohza secures premium content for coaches and creators—blocking screen recording and eliminating piracy at the source. The ultimate defense for your intellectual property.
+            </p>
+</div>
+<div class="lg:col-span-5 w-full">
+<div class="border-t border-charcoal/10 executive-grid">
+<div class="grid-item">
+<span class="briefing-label">Protocol</span>
+<span class="briefing-value">Anti-Rip DRM</span>
+</div>
+<div class="grid-item">
+<span class="briefing-label">Asset Type</span>
+<span class="briefing-value">Course Content</span>
+</div>
+<div class="grid-item">
+<span class="briefing-label">Speed</span>
+<span class="briefing-value">10x Faster</span>
+</div>
+<div class="grid-item">
+<span class="briefing-label">Status</span>
+<span class="briefing-value">Active Monitoring</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<section class="container-xl mb-32">
+<div class="video-container mb-6">
+<video class="w-full h-full object-cover" controls="" muted="" playsinline="" poster="https://placehold.co/1920x1080/e2e2de/1a1a1a?text=Product+Briefing">
+<source src="https://videos.pexels.com/video-files/5453622/5453622-uhd_2560_1440_24fps.mp4" type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
+</div>
+<div class="flex justify-between items-center px-2">
+<p class="text-xs uppercase tracking-[0.2em] text-charcoal/40 font-bold">System Capabilities Demonstration</p>
+<p class="text-xs uppercase tracking-[0.2em] text-charcoal/40 font-bold">v.2.0</p>
+</div>
+</section>
+<section class="container-xl mb-32">
+<div class="bg-stone-muted/30 border border-charcoal/5 p-8 md:p-12 rounded-[8px] relative overflow-hidden">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
+<div class="flex-1">
+<span class="briefing-label">System Load</span>
+<span class="text-3xl md:text-4xl font-light tracking-tight block mb-6">Global Grid State</span>
+<div class="max-w-md p-4 bg-charcoal/5 border border-charcoal/5 rounded mt-2">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-charcoal/40 text-lg mt-0.5">warning</span>
+<p class="text-xs md:text-sm text-charcoal/70 leading-relaxed font-medium">
+<span class="block uppercase tracking-wider text-[10px] text-charcoal/40 font-bold mb-1">Impact Analysis</span>
+                            $1.2 Billion is lost annually to piracy of coaches and content creators.
+                        </p>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="briefing-label">Uptime</span>
+<span class="text-lg md:text-xl font-mono text-charcoal">99.998%</span>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-2 md:gap-4 opacity-20 mb-8 h-16 items-end">
+<div class="h-8 border border-charcoal w-full"></div>
+<div class="h-12 bg-charcoal w-full"></div>
+<div class="h-10 border border-charcoal w-full"></div>
+<div class="h-6 border border-charcoal w-full"></div>
+<div class="h-14 bg-charcoal w-full"></div>
+<div class="h-8 border border-charcoal w-full"></div>
+<div class="h-16 border border-charcoal w-full"></div>
+<div class="h-10 border border-charcoal w-full"></div>
+<div class="h-12 border border-charcoal w-full"></div>
+<div class="h-8 bg-charcoal w-full"></div>
+<div class="h-14 border border-charcoal w-full"></div>
+<div class="h-10 border border-charcoal w-full"></div>
+</div>
+<div class="border-t border-charcoal/10 pt-4 flex justify-between">
+<p class="text-[10px] md:text-xs uppercase tracking-widest text-charcoal/40">Efficiency Dashboard v4.2</p>
+<p class="text-[10px] md:text-xs uppercase tracking-widest text-charcoal/40">All systems operational</p>
+</div>
+</div>
+</section>
+<section class="container-xl mb-32">
+<div class="mb-12">
+<h3 class="text-xs md:text-sm text-charcoal/40 font-bold uppercase tracking-[0.2em]">How we protect you</h3>
+</div>
+<div class="border-t border-b border-charcoal/10">
+<div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-charcoal/10">
+<div class="py-10 md:py-16 pr-8 md:pr-12">
+<span class="text-xs font-bold text-charcoal/30 block mb-6">01</span>
+<h4 class="text-sm md:text-base font-bold uppercase tracking-widest mb-4">Prevent Screen Recording</h4>
+<p class="text-sm md:text-base leading-relaxed text-charcoal/70">Built-in DRM protection that blocks screen capture and recording across supported environments, ensuring your content stays yours.</p>
+</div>
+<div class="py-10 md:py-16 md:px-12">
+<span class="text-xs font-bold text-charcoal/30 block mb-6">02</span>
+<h4 class="text-sm md:text-base font-bold uppercase tracking-widest mb-4">Kill Piracy at Scale</h4>
+<p class="text-sm md:text-base leading-relaxed text-charcoal/70">Kohza doesn’t wait for leaks to spread. It hunts them down automatically using advanced crawling algorithms.</p>
+</div>
+<div class="py-10 md:py-16 md:pl-12">
+<span class="text-xs font-bold text-charcoal/30 block mb-6">03</span>
+<h4 class="text-sm md:text-base font-bold uppercase tracking-widest mb-4">Built for Creators</h4>
+<p class="text-sm md:text-base leading-relaxed text-charcoal/70">Designed specifically for high-value educators who sell knowledge, focusing on revenue retention and IP safety.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-charcoal text-ivory py-24 md:py-32">
+<div class="container-xl">
+<div class="grid lg:grid-cols-2 gap-20 lg:gap-32 items-start">
+<div>
+<span class="briefing-label text-ivory/40 mb-6">Key Differentiator</span>
+<h2 class="text-3xl md:text-5xl normal-case tracking-tight font-bold mb-8">MAR™ — Multi-Algo Reporting</h2>
+<p class="text-base md:text-lg leading-loose text-ivory/70">
+                    MAR continuously scans the internet in real time. When pirated course links appear, it strikes from multiple angles—forcing takedowns up to 10× faster than traditional services. We don't just report; we enforce.
+                </p>
+</div>
+<div class="space-y-12 pt-4">
+<div class="relative">
+<div class="flex justify-between text-xs uppercase font-bold tracking-widest mb-4">
+<span class="text-ivory/60">Scanning Velocity</span>
+<span class="text-ivory">Real-time</span>
+</div>
+<div class="h-1 bg-ivory/10 w-full overflow-hidden">
+<div class="h-full bg-ivory w-[90%]"></div>
+</div>
+<p class="text-[10px] text-ivory/30 mt-2 uppercase tracking-widest">Latency: &lt;50ms</p>
+</div>
+<div class="relative">
+<div class="flex justify-between text-xs uppercase font-bold tracking-widest mb-4">
+<span class="text-ivory/60">Takedown Success</span>
+<span class="text-ivory">99.8%</span>
+</div>
+<div class="h-1 bg-ivory/10 w-full overflow-hidden">
+<div class="h-full bg-ivory w-[98%]"></div>
+</div>
+<p class="text-[10px] text-ivory/30 mt-2 uppercase tracking-widest">Industry Avg: 65%</p>
+</div>
+<div class="relative">
+<div class="flex justify-between text-xs uppercase font-bold tracking-widest mb-4">
+<span class="text-ivory/60">Asset Recovery</span>
+<span class="text-ivory">$12.4M</span>
+</div>
+<div class="h-1 bg-ivory/10 w-full overflow-hidden">
+<div class="h-full bg-ivory w-[75%]"></div>
+</div>
+<p class="text-[10px] text-ivory/30 mt-2 uppercase tracking-widest">YTD Estimate</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="border-b border-charcoal/10">
+<div class="container-xl py-20">
+<span class="briefing-label text-center mb-12">Trusted by serious educators</span>
+<div class="flex flex-wrap justify-center gap-12 md:gap-24 grayscale opacity-40">
+<span class="text-xs md:text-sm font-bold tracking-[0.3em] uppercase">Academy.IP</span>
+<span class="text-xs md:text-sm font-bold tracking-[0.3em] uppercase">Global.L01</span>
+<span class="text-xs md:text-sm font-bold tracking-[0.3em] uppercase">Master.Edu</span>
+<span class="text-xs md:text-sm font-bold tracking-[0.3em] uppercase">Skillset.V</span>
+<span class="text-xs md:text-sm font-bold tracking-[0.3em] uppercase hidden md:inline-block">Vanguard.X</span>
+</div>
+</div>
+</section>
+<section class="py-32 px-6 text-center bg-background-light">
+<div class="w-px h-16 md:h-24 bg-charcoal/20 mx-auto mb-10"></div>
+<p class="text-2xl md:text-4xl font-light leading-tight italic text-charcoal mb-8 max-w-3xl mx-auto">
+                “Knowledge compounds. <br/> It should not be stolen.”
+            </p>
+<span class="briefing-label">— Kohza Philosophy</span>
+</section>
+</main>
+<footer class="bg-ivory py-20 border-t border-charcoal/10">
+<div class="container-xl">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+<div>
+<h2 class="text-xl lowercase font-black tracking-tighter mb-4">kohza.</h2>
+<p class="text-[10px] text-charcoal/40 font-bold tracking-widest uppercase max-w-xs leading-relaxed">
+                    Established MMXXIV. Infrastructure Security Division. <br/>
+                    All rights reserved. System monitoring active.
+                </p>
+</div>
+<div class="flex flex-col md:flex-row gap-8 md:gap-16">
+<div class="flex flex-col gap-4">
+<span class="text-[10px] text-charcoal/30 font-bold uppercase tracking-widest">Menu</span>
+<a class="text-xs uppercase tracking-widest font-bold hover:text-charcoal/60 transition-colors" href="#">Product</a>
+<a class="text-xs uppercase tracking-widest font-bold hover:text-charcoal/60 transition-colors" href="#">Security</a>
+<a class="text-xs uppercase tracking-widest font-bold hover:text-charcoal/60 transition-colors" href="#">Pricing</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-[10px] text-charcoal/30 font-bold uppercase tracking-widest">Legal</span>
+<a class="text-xs uppercase tracking-widest font-bold hover:text-charcoal/60 transition-colors" href="#">Terms</a>
+<a class="text-xs uppercase tracking-widest font-bold hover:text-charcoal/60 transition-colors" href="#">Privacy</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-[10px] text-charcoal/30 font-bold uppercase tracking-widest">Connect</span>
+<a class="text-xs uppercase tracking-widest font-bold hover:text-charcoal/60 transition-colors" href="#">Contact</a>
+<a class="text-xs uppercase tracking-widest font-bold hover:text-charcoal/60 transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

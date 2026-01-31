@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+
+:root {
+  /* Old Money Color Palette */
+  --color-white: #ffffff;
+  --color-cream: #fffdf9;
+  --color-burgundy: #6f0202;
+  --color-charcoal: #211f1a;
+  --color-black: #000000;
+
+  /* Spacing */
+  --spacing-section: 140px;
+  --spacing-hero: 180px;
+
+  /* Layout */
+  --max-width: 1200px;
+  --radius-card: 12px;
+  --radius-btn: 6px;
+
+  /* Old Money Typography */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', 'Baskerville', 'Garamond', serif;
+  --font-body: 'Cormorant Garamond', 'Baskerville', Georgia, serif;
+  --font-mono: 'Courier New', monospace;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px 0 rgba(111, 2, 2, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(111, 2, 2, 0.08);
+  --shadow-lg: 0 10px 25px -5px rgba(111, 2, 2, 0.1);
+  --blur-nav: 16px;
+}
+
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+
+h1 {
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+h2 {
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h3 {
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin-bottom: 0;
+  font-size: 17px;
+}
+
+/* Layout */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+section {
+  padding: var(--spacing-section) 0;
+}
+
+/* Smooth body scroll */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Custom Scrollbar - Old Money Aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+  border-left: 1px solid rgba(111, 2, 2, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(33, 31, 26, 0.2);
+  border-radius: 4px;
+  border: 2px solid var(--color-cream);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-burgundy);
+  border: 1px solid var(--color-cream);
+}
