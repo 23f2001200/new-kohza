@@ -1125,7 +1125,7 @@ function App() {
               poster="https://placehold.co/1920x1080/e2e2de/1a1a1a?text=Product+Briefing"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             >
-              <source src="https://videos.pexels.com/video-files/5453622/5453622-uhd_2560_1440_24fps.mp4" type="video/mp4" />
+              <source src="/MyComp.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
