@@ -211,9 +211,9 @@ function MARSection() {
   ];
 
   return (
-    <section ref={ref} style={{ background: '#211f1a', color: '#FFFFFF', padding: '128px 0' }}>
-      <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '128px', alignItems: 'start' }}>
+    <section ref={ref} className="responsive-section-padding" style={{ background: '#211f1a', color: '#FFFFFF', padding: '128px 0' }}>
+      <div className="responsive-container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px' }}>
+        <div className="responsive-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '128px', alignItems: 'start' }}>
 
           {/* Left Column */}
           <div>
@@ -885,7 +885,7 @@ function App() {
         backdropFilter: 'blur(12px)',
         borderBottom: '1px solid rgba(33, 31, 26, 0.1)'
       }}>
-        <div style={{
+        <div className="responsive-container responsive-padding" style={{
           maxWidth: '1440px',
           margin: '0 auto',
           padding: '24px 48px',
@@ -940,12 +940,12 @@ function App() {
       <main style={{ flexGrow: 1, paddingTop: '80px' }}>
 
         {/* Hero Header */}
-        <header style={{
+        <header className="responsive-container responsive-section-padding" style={{
           maxWidth: '1440px',
           margin: '0 auto 128px',
           padding: '0 48px'
         }}>
-          <div style={{
+          <div className="responsive-grid gap-override" style={{
             display: 'grid',
             gridTemplateColumns: '7fr 5fr',
             gap: '96px',
@@ -1011,7 +1011,7 @@ function App() {
               transition={{ duration: 0.8, delay: 0.3 }}
               style={{ width: '100%' }}
             >
-              <div style={{
+              <div className="responsive-grid" style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
                 gap: '16px'
@@ -1105,7 +1105,7 @@ function App() {
         </header>
 
         {/* Video Section */}
-        <section style={{ maxWidth: '1440px', margin: '0 auto 128px', padding: '0 48px' }}>
+        <section className="responsive-container" style={{ maxWidth: '1440px', margin: '0 auto 128px', padding: '0 48px' }}>
           <div style={{
             position: 'relative',
             width: '100%',
@@ -1152,7 +1152,7 @@ function App() {
         </section>
 
         {/* Global Grid State Section */}
-        <section style={{ maxWidth: '1440px', margin: '0 auto 128px', padding: '0 48px' }}>
+        <section className="responsive-container" style={{ maxWidth: '1440px', margin: '0 auto 128px', padding: '0 48px' }}>
           <AnimatedGrid />
         </section>
 
@@ -1163,8 +1163,8 @@ function App() {
         <MARSection />
 
         {/* Dynamic Watermarking Section */}
-        <section style={{ padding: '128px 0', background: '#211f1a', color: '#fffdf9', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+        <section className="responsive-section-padding" style={{ padding: '128px 0', background: '#211f1a', color: '#fffdf9', position: 'relative', overflow: 'hidden' }}>
+          <div className="responsive-container responsive-grid gap-override" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
             <div>
               <span style={{
                 fontSize: '11px',
@@ -1264,7 +1264,7 @@ function App() {
 
         {/* Security Standards Strip */}
         <section style={{ padding: '64px 0', background: '#ffffff', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-          <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '80px', flexWrap: 'wrap' }}>
+          <div className="responsive-container responsive-flex" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '80px', flexWrap: 'wrap' }}>
             <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'rgba(33, 31, 26, 0.4)', fontWeight: 'bold' }}>Secured By</span>
 
             {['Google Widevine', 'Apple FairPlay', 'Microsoft PlayReady'].map((std, i) => (
@@ -1279,8 +1279,8 @@ function App() {
         </section>
 
         {/* Integration Ecosystem */}
-        <section style={{ padding: '128px 0', background: '#fffdf9' }}>
-          <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px', textAlign: 'center' }}>
+        <section className="responsive-section-padding" style={{ padding: '128px 0', background: '#fffdf9' }}>
+          <div className="responsive-container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px', textAlign: 'center' }}>
             <span style={{
               fontSize: '11px',
               textTransform: 'uppercase',
@@ -1304,7 +1304,7 @@ function App() {
               Works with your existing stack
             </h2>
 
-            <div style={{
+            <div className="responsive-flex gap-override" style={{
               display: 'flex',
               justifyContent: 'center',
               gap: '80px',
@@ -1360,9 +1360,9 @@ function App() {
               </h2>
             </motion.div>
 
-            <div style={{
+            <div className="gap-override" style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
               gap: '32px'
             }}>
               {[
@@ -1457,8 +1457,8 @@ function App() {
         </section>
 
         {/* FAQ Section */}
-        <section style={{ padding: '128px 0', background: '#fffdf9' }}>
-          <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 48px' }}>
+        <section className="responsive-section-padding" style={{ padding: '128px 0', background: '#fffdf9' }}>
+          <div className="responsive-container" style={{ maxWidth: '800px', margin: '0 auto', padding: '0 48px' }}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1553,8 +1553,8 @@ function App() {
         </section>
 
         {/* Inline Booking Section */}
-        <section style={{ padding: '0 0 128px', background: '#fffdf9' }}>
-          <div style={{
+        <section className="responsive-section-padding" style={{ padding: '0 0 128px', background: '#fffdf9' }}>
+          <div className="responsive-container responsive-padding mobile-w-full" style={{
             maxWidth: '560px',
             margin: '0 auto',
             padding: '40px',
@@ -1585,9 +1585,9 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer style={{ background: '#FFFFFF', padding: '80px 0', borderTop: '1px solid rgba(33, 31, 26, 0.1)' }}>
-        <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', gap: '48px', flexWrap: 'wrap' }}>
+      <footer className="responsive-section-padding" style={{ background: '#FFFFFF', padding: '80px 0', borderTop: '1px solid rgba(33, 31, 26, 0.1)' }}>
+        <div className="responsive-container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px' }}>
+          <div className="responsive-flex gap-override" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', gap: '48px', flexWrap: 'wrap' }}>
             <div>
               <h2 style={{
                 fontSize: '20px',

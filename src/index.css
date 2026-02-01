@@ -113,6 +113,51 @@ body.modal-open {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-burgundy);
   border: 1px solid var(--color-cream);
+}
+
+/* Mobile Optimization */
+@media (max-width: 900px) {
+  .responsive-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+
+  .responsive-flex {
+    flex-direction: column !important;
+    gap: 48px !important;
+    align-items: flex-start !important;
+  }
+
+  .responsive-flex-reverse {
+    flex-direction: column-reverse !important;
+    gap: 48px !important;
+    align-items: flex-start !important;
+  }
+
+  .responsive-padding {
+    padding: 64px 24px !important;
+  }
+
+  .responsive-section-padding {
+    padding: 64px 0 !important;
+  }
+
+  .responsive-container {
+    padding: 0 24px !important;
+  }
+
+  /* Specific Override for MAR Section & others having large gaps */
+  .gap-override {
+    gap: 40px !important;
+  }
+
+  .hero-text-align {
+    text-align: left !important;
+  }
+
+  .mobile-w-full {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 }
