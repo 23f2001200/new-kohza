@@ -360,13 +360,14 @@ function FeaturesSection() {
   ];
 
   return (
-    <section ref={ref} style={{ maxWidth: '1440px', margin: '0 auto 128px', padding: '0 48px' }}>
+    <section ref={ref} className="responsive-container responsive-section-padding" style={{ maxWidth: '1440px', margin: '0 auto 128px', padding: '0 48px' }}>
 
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
+        className="responsive-flex gap-override"
         style={{ marginBottom: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'end' }}
       >
         <div>
@@ -453,7 +454,7 @@ function FeaturesSection() {
                 }}></div>
               </div>
 
-              <div style={{
+              <div className="responsive-feature-card" style={{
                 position: 'relative',
                 zIndex: 1,
                 display: 'grid',
@@ -501,7 +502,7 @@ function FeaturesSection() {
                 {/* Content Column */}
                 <div style={{ order: isEven ? 1 : 2, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                   {/* Number Badge - Softer */}
-                  <div style={{
+                  <div className="badge-container" style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '12px',

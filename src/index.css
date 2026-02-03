@@ -160,4 +160,35 @@ body.modal-open {
     width: 100% !important;
     max-width: 100% !important;
   }
+
+  /* Feature Card Specifics */
+  .responsive-feature-card {
+    grid-template-columns: 1fr !important;
+    padding: 32px 24px !important;
+    gap: 32px !important;
+    text-align: center;
+  }
+
+  .responsive-feature-card>div:first-child {
+    order: 1 !important;
+    /* Force Icon First */
+    margin: 0 auto;
+    justify-content: center !important;
+  }
+
+  .responsive-feature-card>div:last-child {
+    order: 2 !important;
+    /* Force Text Second */
+    align-items: center !important;
+  }
+
+  /* Reset flex/grid alignments for stack */
+  .responsive-feature-card h3,
+  .responsive-feature-card p {
+    text-align: center;
+  }
+
+  .responsive-feature-card .badge-container {
+    justify-content: center;
+  }
 }
