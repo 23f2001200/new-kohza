@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function CustomPlayer() {
     return (
-        <div style={{ minHeight: '100vh', background: '#fffdf9', color: '#211f1a', fontFamily: "'Playfair Display', serif" }}>
+        <div style={{ minHeight: '100vh', background: '#fffdf9', color: '#211f1a' }}>
 
             {/* Navigation Bar (Simplified) */}
             <nav className="responsive-container responsive-padding" style={{
