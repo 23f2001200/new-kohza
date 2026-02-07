@@ -1133,11 +1133,11 @@ function Home() {
           }}>
             <video
               className="w-full h-full object-cover"
-              controls
+              autoPlay
               muted
+              loop
               playsInline
-              poster="https://placehold.co/1920x1080/e2e2de/1a1a1a?text=Product+Briefing"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' }}
             >
               <source src="/MyComp.mp4" type="video/mp4" />
               Your browser does not support the video tag.
