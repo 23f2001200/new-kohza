@@ -60,8 +60,16 @@ export default function CustomPlayer() {
                         <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4rem)', lineHeight: '1.1', marginBottom: '32px', letterSpacing: '-0.02em', fontWeight: 'bold', color: '#211f1a' }}>
                             Technical Documentation:<br />Secure Playback Engine.
                         </h1>
-                        <div style={{ marginBottom: '48px', border: '1px solid rgba(33, 31, 26, 0.1)', borderRadius: '8px', overflow: 'hidden' }}>
-                            <img src="https://placehold.co/1920x1080/e2e2de/1a1a1a?text=Product+Briefing" alt="System Interface" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        <div style={{ marginBottom: '48px', border: '1px solid rgba(33, 31, 26, 0.1)', borderRadius: '8px', overflow: 'hidden', aspectRatio: '16/9' }}>
+                            <video
+                                src="/MyComp.mp4"
+                                muted
+                                autoPlay
+                                loop
+                                playsInline
+                                controls={false}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none', display: 'block' }}
+                            />
                         </div>
                         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'left' }}>
                             <p style={{ fontSize: '18px', lineHeight: '1.8', color: 'rgba(33, 31, 26, 0.8)', marginBottom: '24px', fontFamily: "'Cormorant Garamond', serif" }}>
