@@ -40,7 +40,7 @@ export default function CustomPlayer() {
                         textDecoration: 'none',
                         display: 'inline-block'
                     }}>
-                        Request Access
+                        Contact Us
                     </Link>
                 </div>
             </nav>
@@ -57,43 +57,18 @@ export default function CustomPlayer() {
                         <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'rgba(33, 31, 26, 0.6)', fontWeight: 'bold', display: 'block', marginBottom: '24px' }}>
                             The Viewing Protocol
                         </span>
-                        <h1 style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: '1.05', marginBottom: '32px', letterSpacing: '-0.02em', fontWeight: 'bold', color: '#211f1a' }}>
-                            Cinema-Grade<br />Secure Playback Engine.
+                        <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4rem)', lineHeight: '1.1', marginBottom: '32px', letterSpacing: '-0.02em', fontWeight: 'bold', color: '#211f1a' }}>
+                            Technical Documentation:<br />Secure Playback Engine.
                         </h1>
-                        <p style={{ fontSize: '20px', lineHeight: '1.6', color: 'rgba(33, 31, 26, 0.6)', maxWidth: '700px', margin: '0 auto 48px', fontFamily: "'Cormorant Garamond', serif" }}>
-                            A bespoke video interface engineered for absolute sovereignty.
-                            Eliminate platform leaks, control user experience, and deliver 4K encrypted streams
-                            with zero latency. The ultimate theatre for your intellectual property.
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        style={{
-                            position: 'relative',
-                            maxWidth: '1000px',
-                            margin: '0 auto',
-                            aspectRatio: '16/9',
-                            background: '#000',
-                            borderRadius: '12px',
-                            overflow: 'hidden',
-                            boxShadow: '0 30px 60px -12px rgba(0, 0, 0, 0.25)',
-                            border: '1px solid rgba(33, 31, 26, 0.1)'
-                        }}
-                    >
-                        {/* Mock Player UI */}
-                        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'radial-gradient(circle, rgba(50,50,50,1) 0%, rgba(0,0,0,1) 100%)' }}>
-                            <Play size={64} fill="rgba(255,255,255,0.9)" color="transparent" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.5))' }} />
-                        </div>
-                        {/* Player Controls Mock */}
-                        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '48px', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', display: 'flex', alignItems: 'center', padding: '0 24px', gap: '16px' }}>
-                            <div style={{ color: '#fff', fontSize: '12px', fontFamily: 'monospace' }}>00:00 / 45:12</div>
-                            <div style={{ flex: 1, height: '2px', background: 'rgba(255,255,255,0.2)' }}>
-                                <div style={{ width: '30%', height: '100%', background: '#fff' }}></div>
-                            </div>
-                            <div style={{ color: '#fff', fontSize: '12px', fontWeight: 'bold', letterSpacing: '0.1em' }}>4K HDR</div>
+                        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'left' }}>
+                            <p style={{ fontSize: '18px', lineHeight: '1.8', color: 'rgba(33, 31, 26, 0.8)', marginBottom: '24px', fontFamily: "'Cormorant Garamond', serif" }}>
+                                <strong>Overview:</strong> The Kohza Playback Engine provides a hardware-encrypted video interface designed for high-value intellectual property.
+                                It eliminates common platform vulnerabilities (e.g., stream ripping, screen recording) through a proprietary multi-layer defense system.
+                            </p>
+                            <p style={{ fontSize: '18px', lineHeight: '1.8', color: 'rgba(33, 31, 26, 0.8)', marginBottom: '48px', fontFamily: "'Cormorant Garamond', serif" }}>
+                                <strong>System Architecture:</strong> Utilizing Google Widevine and Apple FairPlay DRM at the kernel level, the engine ensures that decrypted content never resides in system memory accessible to user-space applications.
+                                This documentation outlines the core capabilities, integration protocols, and security specifications for enterprise deployment.
+                            </p>
                         </div>
                     </motion.div>
                 </header>
@@ -202,20 +177,7 @@ export default function CustomPlayer() {
                                 letterSpacing: '0.1em',
                                 borderRadius: '2px'
                             }}>
-                                Get API Keys
-                            </Link>
-                            <Link to="/" style={{
-                                padding: '16px 32px',
-                                border: '1px solid rgba(33, 31, 26, 0.2)',
-                                color: '#211f1a',
-                                textDecoration: 'none',
-                                fontSize: '14px',
-                                fontWeight: 'bold',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.1em',
-                                borderRadius: '2px'
-                            }}>
-                                View Documentation
+                                Contact Us
                             </Link>
                         </div>
                     </div>
