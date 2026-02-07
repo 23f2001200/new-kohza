@@ -905,15 +905,7 @@ function Home() {
           }}>kohza.</h2>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-            <span style={{
-              fontSize: '11px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
-              color: 'rgba(33, 31, 26, 0.5)',
-              fontWeight: 'bold'
-            }}>
-              Ref: 2024.01 // Desktop Protocol
-            </span>
+
             <Link to="/player" style={{
               fontSize: '11px',
               textTransform: 'uppercase',
