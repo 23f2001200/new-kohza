@@ -242,6 +242,7 @@ function MARSection() {
                 textTransform: 'none',
                 letterSpacing: '-0.02em',
                 fontWeight: 'bold',
+                color: '#FFFFFF',
                 marginBottom: '32px',
                 margin: '0 0 32px 0'
               }}
