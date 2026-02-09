@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView, useSpring, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Shield, Activity, Zap, ChevronDown, ChevronUp, Lock } from 'lucide-react';
+import { Shield, Activity, Zap, ChevronDown, ChevronUp, Lock, AlertTriangle } from 'lucide-react';
 
 // Animated counter hook
 function useAnimatedCount(end, duration = 2000, shouldStart = true) {
@@ -45,7 +45,7 @@ function AnimatedGrid() {
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       style={{
         background: 'rgba(226, 226, 222, 0.3)',
         border: '1px solid rgba(33, 31, 26, 0.05)',
@@ -67,7 +67,7 @@ function AnimatedGrid() {
           <motion.span
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             style={{
               fontSize: '11px',
               textTransform: 'uppercase',
@@ -78,12 +78,12 @@ function AnimatedGrid() {
               marginBottom: '8px'
             }}
           >
-            System Load
+            Global Threat Index
           </motion.span>
           <motion.span
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             style={{
               fontSize: 'clamp(2rem, 4vw, 2.5rem)',
               fontWeight: '300',
@@ -92,14 +92,14 @@ function AnimatedGrid() {
               marginBottom: '24px'
             }}
           >
-            Global Grid State
+            The Infrastructure of Intellectual Sovereignty.
           </motion.span>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.4, duration: 0.5 }}
             style={{
-              maxWidth: '448px',
+              maxWidth: '520px',
               padding: '16px',
               background: 'rgba(33, 31, 26, 0.05)',
               border: '1px solid rgba(33, 31, 26, 0.05)',
@@ -107,7 +107,7 @@ function AnimatedGrid() {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'start', gap: '12px' }}>
-              <span style={{ color: 'rgba(33, 31, 26, 0.4)', fontSize: '18px', marginTop: '2px' }}>⚠</span>
+              <AlertTriangle size={20} color="#d97706" style={{ marginTop: '2px', opacity: 0.8 }} />
               <p style={{
                 fontSize: '14px',
                 color: 'rgba(33, 31, 26, 0.7)',
@@ -124,9 +124,9 @@ function AnimatedGrid() {
                   fontWeight: 'bold',
                   marginBottom: '4px'
                 }}>
-                  Impact Analysis
+                  Capital Preservation Metric
                 </span>
-                $1.2 Billion is lost annually to piracy of coaches and content creators.
+                Kohza provides the definitive shielding layer for digital assets. We eliminate piracy vectors at the network architecture level, ensuring your intellectual capital remains exclusively yours.
               </p>
             </div>
           </motion.div>
@@ -190,7 +190,7 @@ function AnimatedGrid() {
         style={{ borderTop: '1px solid rgba(33, 31, 26, 0.1)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between' }}
       >
         <p style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(33, 31, 26, 0.4)', margin: 0 }}>
-          Efficiency Dashboard v4.2
+          Real-Time Security Telemetry
         </p>
         <p style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(33, 31, 26, 0.4)', margin: 0 }}>
           All systems operational
@@ -221,7 +221,7 @@ function MARSection() {
             <motion.span
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 fontSize: '11px',
                 textTransform: 'uppercase',
@@ -261,7 +261,7 @@ function MARSection() {
                 margin: 0
               }}
             >
-              MAR scans 2.4M+ links daily across Telegram, Discord, Google, and file-sharing networks. When pirated content surfaces, our multi-algorithm system identifies the source within 72 hours and forces takedowns from multiple angles—10× faster than traditional DMCA services. Automated enforcement at enterprise scale.
+              MAR represents a paradigm shift in threat detection. Our proprietary constellation engine continuously scans over 2.4 million nodes daily—spanning Telegram, Discord, dark web forums, and file-hosting networks. When unauthorized assets are detected, MAR executes a multi-vector takedown protocol that neutralizes threats within minutes, not days. This is autonomous enforcement at enterprise scale.
             </motion.p>
           </div>
 
@@ -335,8 +335,8 @@ function FeaturesSection() {
     {
       num: '01',
       label: 'Defense Infrastructure',
-      title: 'Enterprise DRM Security',
-      desc: 'Hollywood-grade encryption with Google Widevine & Apple FairPlay DRM. Total screen capture block on mobile. No downloader with 100M+ installs can breach our security. Dynamic watermarking with user ID, email, and IP tracking.',
+      title: 'Military-Grade Encryption Architecture',
+      desc: 'We deploy a fortress-like security stack. Utilizing Google Widevine and Apple FairPlay DRM, we wrap your content in bank-level encryption. Our proprietary dynamic watermarking injects invisible, session-specific user IDs, making every stream traceable and every leak identifiable.',
       icon: Shield,
       color: 'rgba(111, 2, 2, 0.1)', // Blue
       accentColor: '#6f0202'
@@ -344,8 +344,8 @@ function FeaturesSection() {
     {
       num: '02',
       label: 'Automated Enforcement',
-      title: 'Advanced Piracy Detection',
-      desc: 'DRM alone isn\'t enough—hackers have evolved. Our system detects DRM breaches, password sharing, and advanced piracy attempts in real-time. Track per-user watch time, device data, and security events. Blocked 57,000+ sessions across 2000+ platforms in 6 months.',
+      title: 'Autonomous Threat Neutralization',
+      desc: 'Static defense is insufficient against evolving threats. Kohza’s active countermeasures detect anomalies in real-time—from credential sharing to stream-ripping attempts. Our AI-driven logic blocks unauthorized sessions instantly, securing your perimeter without human intervention.',
       icon: Activity,
       color: 'rgba(111, 2, 2, 0.1)', // Red
       accentColor: '#6f0202'
@@ -353,8 +353,8 @@ function FeaturesSection() {
     {
       num: '03',
       label: 'Revenue Protection',
-      title: 'Revenue Growth Platform',
-      desc: 'Prevent illegal downloads and see revenue jump up to 81% annually. Built for e-learning platforms, media companies, and high-ticket course creators where a single leak costs $50K+. Protect your intellectual property as mission-critical infrastructure.',
+      title: 'Revenue Retention Engine',
+      desc: 'Piracy is not just a nuisance; it is a hemorrhage of enterprise value. By sealing the leaks in your distribution model, Kohza directly recovers lost revenue. Our partners regularly see an immediate 81% uplift in retained earnings. Protect your bottom line as rigorously as you protect your code.',
       icon: Zap,
       color: 'rgba(245, 158, 11, 0.1)', // Amber
       accentColor: '#6f0202'
@@ -368,7 +368,7 @@ function FeaturesSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="responsive-flex gap-override"
         style={{ marginBottom: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'end' }}
       >
@@ -414,7 +414,7 @@ function FeaturesSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ scale: 1.01, transition: { duration: 0.3 } }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
               style={{
                 position: 'relative',
                 background: 'rgba(255, 253, 249, 0.6)',
@@ -576,7 +576,7 @@ function FeaturesSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: 0.8 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         style={{
           marginTop: '48px',
           padding: '40px',
@@ -790,7 +790,7 @@ function QuoteSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             style={{
               margin: '64px auto',
               display: 'flex',
@@ -878,6 +878,7 @@ function Home() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#fffdf9', color: '#211f1a', fontFamily: "'Playfair Display', serif" }}>
+      <div className="bg-noise"></div>
 
       {/* Navigation */}
       <nav style={{
@@ -1591,113 +1592,110 @@ function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="responsive-section-padding" style={{ background: '#FFFFFF', padding: '80px 0', borderTop: '1px solid rgba(33, 31, 26, 0.1)' }}>
+      <footer className="responsive-section-padding" style={{ background: '#FFFFFF', padding: '64px 0', borderTop: '1px solid rgba(55, 53, 47, 0.09)', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
         <div className="responsive-container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 48px' }}>
           <div className="responsive-flex gap-override" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', gap: '48px', flexWrap: 'wrap' }}>
             <div>
               <h2 style={{
-                fontSize: '20px',
-                textTransform: 'lowercase',
-                fontWeight: '900',
+                fontSize: '18px',
+                fontWeight: '600',
                 letterSpacing: '-0.02em',
-                marginBottom: '16px',
-                margin: '0 0 16px 0'
+                marginBottom: '12px',
+                margin: '0 0 12px 0',
+                color: 'rgb(55, 53, 47)'
               }}>
                 kohza.
               </h2>
               <p style={{
-                fontSize: '10px',
-                color: 'rgba(33, 31, 26, 0.4)',
-                fontWeight: 'bold',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                maxWidth: '320px',
+                fontSize: '13px',
+                color: 'rgba(55, 53, 47, 0.5)',
+                fontWeight: '400',
+                letterSpacing: '0',
+                maxWidth: '280px',
                 lineHeight: '1.6',
                 margin: 0
               }}>
-                Established MMXXIV. Infrastructure Security Division.<br />
-                All rights reserved. System monitoring active.
+                Established 2024. Infrastructure Security Division.<br />
+                All rights reserved.
               </p>
             </div>
-            <div style={{ display: 'flex', gap: '64px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', gap: '56px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <span style={{
-                  fontSize: '10px',
-                  color: 'rgba(33, 31, 26, 0.3)',
-                  fontWeight: 'bold',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.15em'
+                  fontSize: '12px',
+                  color: 'rgba(55, 53, 47, 0.4)',
+                  fontWeight: '500',
+                  letterSpacing: '0'
                 }}>
                   Menu
                 </span>
-                {['Security', 'Pricing'].map((item, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    style={{
-                      fontSize: '12px',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.15em',
-                      fontWeight: 'bold',
-                      color: '#211f1a',
-                      textDecoration: 'none',
-                      transition: 'color 0.3s'
-                    }}
-                    onMouseEnter={(e) => e.target.style.color = 'rgba(33, 31, 26, 0.6)'}
-                    onMouseLeave={(e) => e.target.style.color = '#211f1a'}
-                  >
-                    {item}
-                  </a>
-                ))}
                 <Link to="/player" style={{
-                  fontSize: '12px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.15em',
-                  fontWeight: 'bold',
-                  color: '#211f1a',
+                  fontSize: '14px',
+                  fontWeight: '400',
+                  color: 'rgb(55, 53, 47)',
                   textDecoration: 'none',
-                  transition: 'color 0.3s'
+                  transition: 'color 0.2s'
                 }}>
-                  Player Engine
+                  Player
+                </Link>
+                <a
+                  href="#"
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: '400',
+                    color: 'rgb(55, 53, 47)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s'
+                  }}
+                  onMouseEnter={(e) => e.target.style.color = 'rgba(55, 53, 47, 0.6)'}
+                  onMouseLeave={(e) => e.target.style.color = 'rgb(55, 53, 47)'}
+                >
+                  Pricing
+                </a>
+                <Link to="/faq" style={{
+                  fontSize: '14px',
+                  fontWeight: '400',
+                  color: 'rgb(55, 53, 47)',
+                  textDecoration: 'none',
+                  transition: 'color 0.2s'
+                }}>
+                  FAQ
                 </Link>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <span style={{
-                  fontSize: '10px',
-                  color: 'rgba(33, 31, 26, 0.3)',
-                  fontWeight: 'bold',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.15em'
+                  fontSize: '12px',
+                  color: 'rgba(55, 53, 47, 0.4)',
+                  fontWeight: '500',
+                  letterSpacing: '0'
                 }}>
                   Legal
                 </span>
-                {['Terms', 'Privacy'].map((item, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    style={{
-                      fontSize: '12px',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.15em',
-                      fontWeight: 'bold',
-                      color: '#211f1a',
-                      textDecoration: 'none',
-                      transition: 'color 0.3s'
-                    }}
-                    onMouseEnter={(e) => e.target.style.color = 'rgba(33, 31, 26, 0.6)'}
-                    onMouseLeave={(e) => e.target.style.color = '#211f1a'}
-                  >
-                    {item}
-                  </a>
-                ))}
+                <Link to="/terms" style={{
+                  fontSize: '14px',
+                  fontWeight: '400',
+                  color: 'rgb(55, 53, 47)',
+                  textDecoration: 'none',
+                  transition: 'color 0.2s'
+                }}>
+                  Terms
+                </Link>
+                <Link to="/privacy" style={{
+                  fontSize: '14px',
+                  fontWeight: '400',
+                  color: 'rgb(55, 53, 47)',
+                  textDecoration: 'none',
+                  transition: 'color 0.2s'
+                }}>
+                  Privacy
+                </Link>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <span style={{
-                  fontSize: '10px',
-                  color: 'rgba(33, 31, 26, 0.3)',
-                  fontWeight: 'bold',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.15em'
+                  fontSize: '12px',
+                  color: 'rgba(55, 53, 47, 0.4)',
+                  fontWeight: '500',
+                  letterSpacing: '0'
                 }}>
                   Connect
                 </span>
@@ -1707,32 +1705,28 @@ function Home() {
                   data-cal-namespace="15min"
                   data-cal-config='{"layout":"week_view","useSlotsViewOnSmallScreen":"true"}'
                   style={{
-                    fontSize: '12px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.15em',
-                    fontWeight: 'bold',
-                    color: '#211f1a',
+                    fontSize: '14px',
+                    fontWeight: '400',
+                    color: 'rgb(55, 53, 47)',
                     textDecoration: 'none',
-                    transition: 'color 0.3s'
+                    transition: 'color 0.2s'
                   }}
-                  onMouseEnter={(e) => e.target.style.color = 'rgba(33, 31, 26, 0.6)'}
-                  onMouseLeave={(e) => e.target.style.color = '#211f1a'}
+                  onMouseEnter={(e) => e.target.style.color = 'rgba(55, 53, 47, 0.6)'}
+                  onMouseLeave={(e) => e.target.style.color = 'rgb(55, 53, 47)'}
                 >
                   Book Call
                 </a>
                 <a
                   href="#"
                   style={{
-                    fontSize: '12px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.15em',
-                    fontWeight: 'bold',
-                    color: '#211f1a',
+                    fontSize: '14px',
+                    fontWeight: '400',
+                    color: 'rgb(55, 53, 47)',
                     textDecoration: 'none',
-                    transition: 'color 0.3s'
+                    transition: 'color 0.2s'
                   }}
-                  onMouseEnter={(e) => e.target.style.color = 'rgba(33, 31, 26, 0.6)'}
-                  onMouseLeave={(e) => e.target.style.color = '#211f1a'}
+                  onMouseEnter={(e) => e.target.style.color = 'rgba(55, 53, 47, 0.6)'}
+                  onMouseLeave={(e) => e.target.style.color = 'rgb(55, 53, 47)'}
                 >
                   Twitter
                 </a>
