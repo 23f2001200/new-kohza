@@ -1,227 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  /* Old Money Color Palette */
-  --color-white: #ffffff;
-  --color-cream: #fffdf9;
-  --color-burgundy: #6f0202;
-  --color-charcoal: #211f1a;
-  --color-black: #000000;
-
-  /* Spacing */
-  --spacing-section: 140px;
-  --spacing-hero: 180px;
-
-  /* Layout */
-  --max-width: 1200px;
-  --radius-card: 12px;
-  --radius-btn: 6px;
-
-  /* Old Money Typography */
-  --font-serif: 'Playfair Display', 'Cormorant Garamond', 'Baskerville', 'Garamond', serif;
-  --font-body: 'Cormorant Garamond', 'Baskerville', Georgia, serif;
-  --font-mono: 'Courier New', monospace;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 3px 0 rgba(111, 2, 2, 0.06);
-  --shadow-md: 0 4px 6px -1px rgba(111, 2, 2, 0.08);
-  --shadow-lg: 0 10px 25px -5px rgba(111, 2, 2, 0.1);
-  --blur-nav: 16px;
+@layer base {
+    :root {
+        --background: 0 0% 8%;
+        /* Lighter dark background - was 3.9% */
+        --foreground: 0 0% 98%;
+        /* #fafafa */
+        --card: 0 0% 10%;
+        /* Lighter cards - was 3.9% */
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 10%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 9 82% 58%;
+        /* #ea580c (Orange-600) */
+        --primary-foreground: 0 0% 9%;
+        --secondary: 0 0% 18%;
+        /* Lighter secondary - was 14.9% */
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 18%;
+        /* Lighter muted - was 14.9% */
+        --muted-foreground: 0 0% 70%;
+        /* Lighter text - was 63.9% */
+        --accent: 0 0% 18%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 20%;
+        /* Lighter borders - was 14.9% */
+        --input: 0 0% 20%;
+        --ring: 0 0% 83.1%;
+        --radius: 0.5rem;
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
 }
 
-/* Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+    * {
+        @apply border-border;
+    }
 
-body {
-  background-color: var(--color-cream);
-  color: var(--color-charcoal);
-  font-family: var(--font-body);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  position: relative;
-}
-
-/* UI/UX Pro Max - Selection */
-::selection {
-  background: rgba(33, 31, 26, 0.15);
-  /* Charcoal at 15% */
-  color: var(--color-charcoal);
-}
-
-/* UI/UX Pro Max - Noise Texture */
-.bg-noise {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 50;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opactiy='1'/%3E%3C/svg%3E");
-}
-
-/* UI/UX Pro Max - Tech Label */
-.technical-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  /* Slightly larger for tracking balance */
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  /* Increased from default */
-  color: rgba(33, 31, 26, 0.5);
-  font-weight: 500;
-}
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  color: var(--color-charcoal);
-}
-
-h1 {
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin-bottom: 24px;
-}
-
-h2 {
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-h3 {
-  letter-spacing: -0.01em;
-}
-
-p {
-  margin-bottom: 0;
-  font-size: 17px;
-}
-
-/* Layout */
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 48px;
-}
-
-section {
-  padding: var(--spacing-section) 0;
-}
-
-/* Smooth body scroll */
-body.modal-open {
-  overflow: hidden;
-}
-
-/* Custom Scrollbar - Old Money Aesthetic */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-cream);
-  border-left: 1px solid rgba(111, 2, 2, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(33, 31, 26, 0.2);
-  border-radius: 4px;
-  border: 2px solid var(--color-cream);
-  transition: all 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  border: 1px solid var(--color-cream);
-}
-
-/* Mobile Optimization */
-@media (max-width: 900px) {
-  .responsive-grid {
-    grid-template-columns: 1fr !important;
-    gap: 48px !important;
-  }
-
-  .responsive-flex {
-    flex-direction: column !important;
-    gap: 48px !important;
-    align-items: flex-start !important;
-  }
-
-  .responsive-flex-reverse {
-    flex-direction: column-reverse !important;
-    gap: 48px !important;
-    align-items: flex-start !important;
-  }
-
-  .responsive-padding {
-    padding: 64px 24px !important;
-  }
-
-  .responsive-section-padding {
-    padding: 64px 0 !important;
-  }
-
-  .responsive-container {
-    padding: 0 24px !important;
-  }
-
-  /* Specific Override for MAR Section & others having large gaps */
-  .gap-override {
-    gap: 40px !important;
-  }
-
-  .hero-text-align {
-    text-align: left !important;
-  }
-
-  .mobile-w-full {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* Feature Card Specifics */
-  .responsive-feature-card {
-    grid-template-columns: 1fr !important;
-    padding: 32px 24px !important;
-    gap: 32px !important;
-    text-align: center;
-  }
-
-  .responsive-feature-card>div:first-child {
-    order: 1 !important;
-    /* Force Icon First */
-    margin: 0 auto;
-    justify-content: center !important;
-  }
-
-  .responsive-feature-card>div:last-child {
-    order: 2 !important;
-    /* Force Text Second */
-    align-items: center !important;
-  }
-
-  /* Reset flex/grid alignments for stack */
-  .responsive-feature-card h3,
-  .responsive-feature-card p {
-    text-align: center;
-  }
-
-  .responsive-feature-card .badge-container {
-    justify-content: center;
-  }
+    body {
+        @apply bg-background text-foreground font-sans antialiased;
+    }
 }

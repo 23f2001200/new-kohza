@@ -1,402 +1,389 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, Mail, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { FileText, Mail, Globe, Clock, ChevronRight, AlertTriangle } from 'lucide-react';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
-const PREMIUM_EASE = [0.22, 1, 0.36, 1];
-
-// Typography styles
-const typography = {
-    h1: { fontSize: '40px', fontWeight: '500', letterSpacing: '-0.025em', lineHeight: '1.2' },
-    h2: { fontSize: '24px', fontWeight: '500', letterSpacing: '-0.02em', lineHeight: '1.35' },
-    h3: { fontSize: '17px', fontWeight: '500', letterSpacing: '-0.01em', lineHeight: '1.4' },
-    body: { fontSize: '16px', fontWeight: '400', lineHeight: '1.75', color: 'rgba(55, 53, 47, 0.65)' },
-    small: { fontSize: '14px', fontWeight: '400', lineHeight: '1.6', color: 'rgba(55, 53, 47, 0.5)' },
-    label: { fontSize: '11px', fontWeight: '500', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(55, 53, 47, 0.4)' }
-};
-
-// Section component
 const Section = ({ id, title, children }) => (
-    <section id={`section-${id}`} style={{ marginBottom: '16px' }}>
-        <h2 style={{ ...typography.h2, color: 'rgb(55, 53, 47)', marginBottom: '16px' }}>
-            {id}. {title}
-        </h2>
-        <div style={{ ...typography.body }}>
-            {children}
-        </div>
+    <section id={id} className="scroll-mt-28">
+        <h2 className="text-2xl font-bold mb-6 pb-3 border-b border-border">{title}</h2>
+        <div className="space-y-4 text-muted-foreground leading-relaxed">{children}</div>
     </section>
 );
 
-// Subsection
-const Subsection = ({ id, title, children }) => (
-    <div style={{ marginBottom: '20px' }}>
-        <h3 style={{ ...typography.h3, color: 'rgb(55, 53, 47)', marginBottom: '8px' }}>
-            {id} {title}
-        </h3>
-        <div style={{ ...typography.body }}>
-            {children}
-        </div>
+const SubSection = ({ title, children }) => (
+    <div className="mt-6">
+        <h3 className="text-lg font-semibold text-foreground mb-3">{title}</h3>
+        <div className="space-y-3 text-muted-foreground">{children}</div>
     </div>
 );
 
-// List
-const List = ({ items }) => (
-    <ul style={{
-        marginTop: '8px',
-        marginBottom: '8px',
-        listStyleType: 'disc'
-    }}>
+const BulletList = ({ items }) => (
+    <ul className="space-y-2 pl-1">
         {items.map((item, i) => (
-            <li key={i} style={{ ...typography.body, marginBottom: '3px', paddingLeft: '4px' }}>{item}</li>
+            <li key={i} className="flex items-start gap-2.5">
+                <ChevronRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <span>{item}</span>
+            </li>
         ))}
     </ul>
 );
 
-// Callout
-const Callout = ({ children, highlight = false }) => (
-    <div style={{
-        padding: '16px 16px 16px 20px',
-        borderRadius: '4px',
-        marginTop: '10px',
-        marginBottom: '10px',
-        background: highlight ? 'rgba(255, 212, 0, 0.08)' : 'rgba(55, 53, 47, 0.03)',
-        borderLeft: highlight ? '3px solid rgba(203, 145, 47, 0.6)' : '3px solid rgba(55, 53, 47, 0.1)',
-        ...typography.body
-    }}>
-        {children}
-    </div>
-);
-
-// Paragraph
-const P = ({ children, style = {} }) => (
-    <p style={{ ...typography.body, marginBottom: '8px', ...style }}>{children}</p>
-);
-
-// Strong text
-const Strong = ({ children }) => (
-    <strong style={{ fontWeight: '500', color: 'rgb(55, 53, 47)' }}>{children}</strong>
-);
+const sections = [
+    { id: 'what-is', label: '1. What is Kohza?' },
+    { id: 'eligibility', label: '2. Eligibility' },
+    { id: 'how-works', label: '3. How Kohza Works' },
+    { id: 'ownership', label: '4. Content Ownership' },
+    { id: 'payments', label: '5. Payments & Billing' },
+    { id: 'prohibited', label: '6. Prohibited Uses' },
+    { id: 'third-party', label: '7. Third-Party Platforms' },
+    { id: 'data-privacy', label: '8. Data & Privacy' },
+    { id: 'warranties', label: '9. Disclaimer of Warranties' },
+    { id: 'liability', label: '10. Limitation of Liability' },
+    { id: 'indemnification', label: '11. Indemnification' },
+    { id: 'termination', label: '12. Termination' },
+    { id: 'modifications', label: '13. Modifications' },
+    { id: 'governing-law', label: '14. Governing Law' },
+    { id: 'disputes', label: '15. Dispute Resolution' },
+    { id: 'contact', label: '16. Contact & Support' },
+];
 
 export default function Terms() {
-    const tocSections = [
-        "What is Kohza?", "Eligibility & Age Restriction", "How Kohza Works",
-        "Content Ownership & Rights", "Payments, Fees & Billing", "Prohibited Uses",
-        "Third-Party Platforms & Services", "Data, Privacy & Confidentiality",
-        "Disclaimer of Warranties", "Limitation of Liability", "Indemnification",
-        "Termination & Suspension", "Modifications to Terms", "Governing Law & Jurisdiction",
-        "Dispute Resolution & Arbitration", "General Provisions", "Contact & Support",
-        "Acknowledgment & Acceptance", "Effectiveness"
-    ];
-
     return (
-        <div style={{
-            minHeight: '100vh',
-            background: '#ffffff',
-            color: 'rgb(55, 53, 47)',
-            fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
-            WebkitFontSmoothing: 'antialiased'
-        }}>
-            {/* Nav */}
-            <nav style={{
-                position: 'sticky', top: 0, zIndex: 100,
-                background: 'rgba(255, 255, 255, 0.97)',
-                backdropFilter: 'blur(8px)',
-                borderBottom: '1px solid rgba(55, 53, 47, 0.09)'
-            }}>
-                <div style={{ maxWidth: '720px', margin: '0 auto', padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Link to="/" style={{ textDecoration: 'none', color: 'rgba(55,53,47,0.5)', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px', fontWeight: '400' }}>
-                        <ArrowLeft size={15} strokeWidth={1.5} /> Back
-                    </Link>
-                    <Link to="/" style={{ fontSize: '15px', fontWeight: '600', letterSpacing: '-0.02em', textDecoration: 'none', color: 'rgb(55, 53, 47)' }}>kohza.</Link>
-                    <div style={{ width: '60px' }}></div>
-                </div>
-            </nav>
+        <div className="min-h-screen bg-background text-foreground font-sans">
+            <Navbar />
+            <main className="pt-28 pb-20 px-6">
+                <div className="container max-w-5xl mx-auto">
 
-            <main style={{ maxWidth: '720px', margin: '0 auto', padding: '48px 24px 80px' }}>
-                <motion.div
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease: PREMIUM_EASE }}
-                >
                     {/* Header */}
-                    <header style={{ marginBottom: '40px' }}>
-                        <span style={{ ...typography.label, display: 'block', marginBottom: '14px' }}>Legal</span>
-                        <h1 style={{ ...typography.h1, color: 'rgb(55, 53, 47)', marginBottom: '12px' }}>
-                            Terms of Service
-                        </h1>
-                        <p style={{ ...typography.small }}>Last updated February 9, 2026</p>
-                    </header>
-
-                    {/* Intro */}
-                    <div style={{ marginBottom: '32px' }}>
-                        <P>Welcome to Kohza. These Terms of Service ("Terms") govern your access to and use of the Kohza website, applications, services, and tools.</P>
-                        <P>By accessing or using Kohza, you agree to be bound by these Terms. If you do not agree, please do not use our services.</P>
+                    <div className="mb-16">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="p-2.5 rounded-lg bg-primary/10 border border-primary/20">
+                                <FileText className="w-6 h-6 text-primary" />
+                            </div>
+                            <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Legal</span>
+                        </div>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4">Terms of Service</h1>
+                        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                            <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> Last Updated: February 9, 2026</span>
+                            <span className="hidden sm:inline text-border">|</span>
+                            <span className="flex items-center gap-1.5"><Globe className="w-4 h-4" /> kohza.in</span>
+                        </div>
+                        <p className="mt-6 text-muted-foreground max-w-3xl leading-relaxed">
+                            Welcome to Kohza. These Terms of Service govern your access to and use of the Kohza website, applications, services, and tools. By accessing or using Kohza, you agree to be bound by these Terms.
+                        </p>
                     </div>
 
-                    {/* TOC */}
-                    <div style={{ marginBottom: '40px', padding: '18px 22px', background: 'rgba(55, 53, 47, 0.024)', borderRadius: '8px' }}>
-                        <p style={{ ...typography.small, fontWeight: '500', color: 'rgb(55, 53, 47)', marginBottom: '10px' }}>Contents</p>
-                        <div style={{ columns: 2, columnGap: '40px' }}>
-                            {tocSections.map((s, i) => (
-                                <a key={i} href={`#section-${i + 1}`} style={{
-                                    display: 'block', fontSize: '13px', color: 'rgba(55, 53, 47, 0.5)',
-                                    textDecoration: 'none', lineHeight: '1.7', breakInside: 'avoid'
-                                }}>
-                                    {i + 1}. {s}
-                                </a>
-                            ))}
+                    {/* Layout: Sidebar + Content */}
+                    <div className="flex flex-col lg:flex-row gap-12">
+
+                        {/* Table of Contents — Sticky Sidebar */}
+                        <aside className="lg:w-64 shrink-0">
+                            <div className="lg:sticky lg:top-28">
+                                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">On This Page</p>
+                                <nav className="space-y-1 max-h-[70vh] overflow-y-auto">
+                                    {sections.map(s => (
+                                        <a
+                                            key={s.id}
+                                            href={`#${s.id}`}
+                                            className="block text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 px-3 py-1.5 rounded-md transition-colors"
+                                        >
+                                            {s.label}
+                                        </a>
+                                    ))}
+                                </nav>
+                            </div>
+                        </aside>
+
+                        {/* Main Content */}
+                        <div className="flex-1 min-w-0 space-y-16">
+
+                            {/* 1. What is Kohza */}
+                            <Section id="what-is" title="1. What is Kohza?">
+                                <p>Kohza is a comprehensive digital protection and control platform for creators, coaches, and businesses who sell premium content online.</p>
+                                <div className="grid sm:grid-cols-2 gap-3 mt-2">
+                                    {[
+                                        'DRM-style access control & encryption',
+                                        'Dynamic watermarking & screen capture prevention',
+                                        'Real-time piracy detection & monitoring',
+                                        'Automated & manual DMCA takedowns',
+                                        'User authentication & device management',
+                                        'Analytics & enforcement reporting',
+                                    ].map((item, i) => (
+                                        <div key={i} className="flex items-start gap-2 text-sm p-3 rounded-lg border border-border bg-card">
+                                            <ChevronRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                                            <span className="text-foreground">{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="p-4 rounded-xl border border-yellow-500/20 bg-yellow-500/5 mt-4 flex items-start gap-3">
+                                    <AlertTriangle className="w-5 h-5 text-yellow-500 shrink-0 mt-0.5" />
+                                    <p className="text-sm"><strong className="text-foreground">Important:</strong> Kohza does not provide legal advice or legal representation. We act in good faith with best efforts to identify and pursue removal of unauthorized content.</p>
+                                </div>
+                            </Section>
+
+                            {/* 2. Eligibility */}
+                            <Section id="eligibility" title="2. Eligibility & Age Restriction">
+                                <p>You must be at least <strong className="text-foreground">18 years old</strong> to use Kohza and have the legal capacity to enter into a binding contract.</p>
+                                <BulletList items={[
+                                    'You are 18 years of age or older',
+                                    'You are legally capable of entering into this agreement',
+                                    'You will comply with all applicable laws and regulations',
+                                    'You have the authority to agree on behalf of any organization you represent',
+                                ]} />
+                            </Section>
+
+                            {/* 3. How Kohza Works */}
+                            <Section id="how-works" title="3. How Kohza Works">
+                                <SubSection title="Service Model">
+                                    <p>Services are delivered through direct engagement and onboarding, a secure dashboard for content management, automated enforcement workflows, and real-time analytics and reporting.</p>
+                                </SubSection>
+                                <SubSection title="Your Responsibilities">
+                                    <BulletList items={[
+                                        'Provide accurate information about your content and ownership',
+                                        'Ensure you own or are legally authorized to protect the content',
+                                        'Supply correct URLs, files, or evidence for enforcement actions',
+                                        'Ensure all instructions you provide to Kohza are lawful',
+                                        'Comply with DMCA, copyright laws, and platform terms of service',
+                                    ]} />
+                                    <div className="p-4 rounded-xl border border-yellow-500/20 bg-yellow-500/5 mt-4 flex items-start gap-3">
+                                        <AlertTriangle className="w-5 h-5 text-yellow-500 shrink-0 mt-0.5" />
+                                        <p className="text-sm"><strong className="text-foreground">You are solely responsible</strong> for the accuracy of infringement claims, ensuring content doesn't violate third-party rights, and ensuring compliance with applicable laws.</p>
+                                    </div>
+                                </SubSection>
+                            </Section>
+
+                            {/* 4. Content Ownership */}
+                            <Section id="ownership" title="4. Content Ownership & Rights">
+                                <div className="grid sm:grid-cols-2 gap-4">
+                                    <div className="p-5 rounded-xl border border-border bg-card">
+                                        <h4 className="font-semibold text-foreground mb-3">Your Content</h4>
+                                        <p className="text-sm mb-3">You retain <strong className="text-foreground">full ownership</strong> of all content you upload.</p>
+                                        <p className="text-sm">By uploading, you grant Kohza a non-exclusive, worldwide, royalty-free license to host, process, analyze, watermark, and generate reports — strictly limited to operating protection services.</p>
+                                    </div>
+                                    <div className="p-5 rounded-xl border border-border bg-card">
+                                        <h4 className="font-semibold text-foreground mb-3">Kohza IP</h4>
+                                        <p className="text-sm mb-3">All Kohza software, branding, and technology are owned by Kohza. You may not:</p>
+                                        <ul className="space-y-1 text-sm">
+                                            <li>• Copy or reverse-engineer our technology</li>
+                                            <li>• Resell or redistribute our services</li>
+                                            <li>• Use our branding without permission</li>
+                                            <li>• Remove proprietary notices</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </Section>
+
+                            {/* 5. Payments */}
+                            <Section id="payments" title="5. Payments, Fees & Billing">
+                                <SubSection title="Fee Structure">
+                                    <div className="overflow-x-auto">
+                                        <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+                                            <thead>
+                                                <tr className="bg-secondary/50">
+                                                    <th className="text-left px-4 py-2.5 font-semibold text-foreground">Fee Type</th>
+                                                    <th className="text-left px-4 py-2.5 font-semibold text-foreground">Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {[
+                                                    ['Subscription', 'Monthly or annual recurring fees'],
+                                                    ['Per-takedown', 'Charges for individual enforcement actions'],
+                                                    ['Usage-based', 'Based on bandwidth, analytics, or active users'],
+                                                    ['Custom service', 'Specialized DRM or enforcement needs'],
+                                                ].map(([type, desc], i) => (
+                                                    <tr key={i} className="border-t border-border">
+                                                        <td className="px-4 py-2.5 text-foreground font-medium">{type}</td>
+                                                        <td className="px-4 py-2.5">{desc}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </SubSection>
+                                <SubSection title="Payment Terms">
+                                    <BulletList items={[
+                                        'All fees are non-refundable unless explicitly agreed in a signed contract',
+                                        'Invoices are due within 30 days of issue',
+                                        'Services may be suspended if payment is 15+ days overdue',
+                                        'Payment credentials are processed through secure third-party processors',
+                                        'You are responsible for all applicable taxes, duties, and charges',
+                                    ]} />
+                                </SubSection>
+                            </Section>
+
+                            {/* 6. Prohibited Uses */}
+                            <Section id="prohibited" title="6. Prohibited Uses">
+                                <div className="grid sm:grid-cols-2 gap-3">
+                                    {[
+                                        { title: 'False Claims', desc: 'Submitting fraudulent infringement claims' },
+                                        { title: 'Unauthorized Content', desc: 'Controlling content you don\'t own' },
+                                        { title: 'Abuse', desc: 'Abusing DMCA or legal processes' },
+                                        { title: 'Harassment', desc: 'Targeting competitors or individuals' },
+                                        { title: 'Illegal Activity', desc: 'Violating applicable laws' },
+                                        { title: 'Reverse Engineering', desc: 'Extracting Kohza\'s technology' },
+                                        { title: 'Spam or Malware', desc: 'Uploading malicious code or spam' },
+                                        { title: 'Interference', desc: 'Disrupting Kohza\'s services or infrastructure' },
+                                    ].map((item, i) => (
+                                        <div key={i} className="flex items-start gap-3 p-3 rounded-lg border border-destructive/10 bg-destructive/5">
+                                            <span className="text-destructive font-bold text-sm mt-0.5">✕</span>
+                                            <div>
+                                                <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                                                <p className="text-sm">{item.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                <p className="mt-4 text-sm"><strong className="text-foreground">Kohza reserves the right</strong> to reject, suspend, or cancel any request, suspend or terminate your account, and pursue legal action against violators.</p>
+                            </Section>
+
+                            {/* 7. Third-Party */}
+                            <Section id="third-party" title="7. Third-Party Platforms & Services">
+                                <p>Kohza interacts with third-party platforms (YouTube, social media, file hosts, ISPs, etc.) to enforce your rights and pursue takedowns.</p>
+                                <SubSection title="Important Limitations">
+                                    <BulletList items={[
+                                        'Kohza has no control over third-party platform policies or response times',
+                                        'Kohza is not responsible for platform refusals, delays, or content reinstatement',
+                                        'Kohza does not guarantee third-party compliance with takedown requests',
+                                        'Enforcement outcomes vary by platform, jurisdiction, and circumstances',
+                                        'Content removal is on a best-effort basis and not guaranteed',
+                                    ]} />
+                                </SubSection>
+                            </Section>
+
+                            {/* 8. Data & Privacy */}
+                            <Section id="data-privacy" title="8. Data, Privacy & Confidentiality">
+                                <div className="grid sm:grid-cols-2 gap-4">
+                                    <div className="p-5 rounded-xl border border-border bg-card">
+                                        <h4 className="font-semibold text-foreground mb-3">Data We Collect</h4>
+                                        <ul className="space-y-1.5 text-sm">
+                                            <li>• Content metadata and URLs</li>
+                                            <li>• User access logs and analytics</li>
+                                            <li>• Device info and IP addresses</li>
+                                            <li>• Infringement evidence and reports</li>
+                                            <li>• Payment info (processed securely)</li>
+                                        </ul>
+                                    </div>
+                                    <div className="p-5 rounded-xl border border-border bg-card">
+                                        <h4 className="font-semibold text-foreground mb-3">We Keep Confidential</h4>
+                                        <ul className="space-y-1.5 text-sm">
+                                            <li>• Your content and URLs</li>
+                                            <li>• Credentials and auth data</li>
+                                            <li>• Enforcement records and reports</li>
+                                            <li>• Business information and strategies</li>
+                                        </ul>
+                                        <p className="text-xs mt-3 text-muted-foreground">Confidentiality obligations survive termination.</p>
+                                    </div>
+                                </div>
+                                <p className="mt-4 text-sm">For our full Privacy Policy, visit <Link to="/privacy" className="text-primary hover:underline font-medium">/privacy</Link>.</p>
+                            </Section>
+
+                            {/* 9. Warranties */}
+                            <Section id="warranties" title="9. Disclaimer of Warranties">
+                                <div className="p-5 rounded-xl border border-yellow-500/20 bg-yellow-500/5">
+                                    <p className="font-bold text-foreground text-sm uppercase tracking-wide mb-4">Services are provided "as is" and "as available"</p>
+                                    <BulletList items={[
+                                        'No guarantee of complete or permanent removal of infringing content',
+                                        'Best efforts only — commercially reasonable efforts are used',
+                                        'No response time guarantee from third-party platforms',
+                                        'No platform guarantee — we cannot force third-party compliance',
+                                        'No legal advice — Kohza does not provide legal representation',
+                                        'Variable outcomes — results depend on factors outside our control',
+                                    ]} />
+                                </div>
+                            </Section>
+
+                            {/* 10. Liability */}
+                            <Section id="liability" title="10. Limitation of Liability">
+                                <p>To the maximum extent permitted by law:</p>
+                                <BulletList items={[
+                                    'Kohza is not liable for indirect, incidental, consequential, punitive, or exemplary damages',
+                                    'Kohza is not liable for lost revenue, profits, business interruption, or reputational damage',
+                                    'Kohza is not liable for loss or corruption of data',
+                                    'Total liability shall not exceed fees paid in the preceding 12 months',
+                                ]} />
+                                <p className="text-sm mt-3 italic">Some jurisdictions do not allow liability limitations, so the above may not apply to you.</p>
+                            </Section>
+
+                            {/* 11. Indemnification */}
+                            <Section id="indemnification" title="11. Indemnification">
+                                <p>You agree to indemnify, defend, and hold harmless Kohza from any claims arising from:</p>
+                                <BulletList items={[
+                                    'False or improper infringement claims you submit',
+                                    'Misrepresentation of ownership or authorization',
+                                    'Misuse of DRM or takedown services',
+                                    'Violation of these Terms or applicable laws',
+                                    'Disputes with third parties or platforms',
+                                    'Violation of others\' intellectual property or privacy rights',
+                                ]} />
+                            </Section>
+
+                            {/* 12. Termination */}
+                            <Section id="termination" title="12. Termination & Suspension">
+                                <div className="grid sm:grid-cols-2 gap-4">
+                                    <div className="p-5 rounded-xl border border-border bg-card">
+                                        <h4 className="font-semibold text-foreground mb-3">By Kohza</h4>
+                                        <p className="text-sm mb-2">Kohza may suspend or terminate your account for:</p>
+                                        <ul className="space-y-1 text-sm">
+                                            <li>• Violation of these Terms</li>
+                                            <li>• Illegal activity or misuse</li>
+                                            <li>• Non-payment of fees</li>
+                                            <li>• At Kohza's sole discretion</li>
+                                        </ul>
+                                    </div>
+                                    <div className="p-5 rounded-xl border border-border bg-card">
+                                        <h4 className="font-semibold text-foreground mb-3">By You</h4>
+                                        <p className="text-sm mb-2">Cancel your account by contacting:</p>
+                                        <a href="mailto:aryan@kohza.in" className="text-primary hover:underline text-sm font-medium">aryan@kohza.in</a>
+                                        <p className="text-sm mt-3">You remain liable for fees through the end of your current billing period.</p>
+                                    </div>
+                                </div>
+                                <p className="mt-4 text-sm">Upon termination, your access ceases immediately and enforcement activities will stop (subject to legal obligations). Confidentiality obligations survive termination.</p>
+                            </Section>
+
+                            {/* 13. Modifications */}
+                            <Section id="modifications" title="13. Modifications to Terms">
+                                <p>Kohza may update these Terms at any time. For significant changes, we will provide notice via email or in-app notification. <strong className="text-foreground">Continued use of Kohza constitutes acceptance of updated Terms.</strong></p>
+                            </Section>
+
+                            {/* 14. Governing Law */}
+                            <Section id="governing-law" title="14. Governing Law & Jurisdiction">
+                                <p>These Terms are governed by the laws of <strong className="text-foreground">India</strong>, without regard to conflict of law principles. Any legal disputes shall be resolved exclusively in Indian courts.</p>
+                            </Section>
+
+                            {/* 15. Disputes */}
+                            <Section id="disputes" title="15. Dispute Resolution">
+                                <p>Before pursuing litigation, we encourage good-faith negotiation. Contact <a href="mailto:aryan@kohza.in" className="text-primary hover:underline font-medium">aryan@kohza.in</a> with a detailed description. If negotiation fails, disputes may be resolved through binding arbitration under Indian arbitration law.</p>
+                            </Section>
+
+                            {/* 16. Contact */}
+                            <Section id="contact" title="16. Contact & Support">
+                                <div className="p-6 rounded-xl border border-border bg-card">
+                                    <h3 className="font-semibold text-foreground mb-4">Kohza Support</h3>
+                                    <div className="space-y-3 text-sm">
+                                        <p className="flex items-center gap-2">
+                                            <Mail className="w-4 h-4 text-primary" />
+                                            <a href="mailto:aryan@kohza.in" className="text-primary hover:underline">aryan@kohza.in</a>
+                                        </p>
+                                        <p className="flex items-center gap-2">
+                                            <Globe className="w-4 h-4 text-primary" />
+                                            <a href="https://www.kohza.in" className="text-primary hover:underline">www.kohza.in</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </Section>
+
+                            {/* Footer note */}
+                            <div className="pt-8 border-t border-border text-sm text-muted-foreground space-y-2">
+                                <p>These Terms became effective on <strong className="text-foreground">February 9, 2026</strong>.</p>
+                                <p>By using Kohza, you acknowledge that you have read and understood these Terms and agree to be bound by them.</p>
+                                <p className="mt-4">© 2026 Kohza. All rights reserved.</p>
+                            </div>
                         </div>
                     </div>
-
-                    {/* Sections */}
-                    <Section id={1} title="What is Kohza?">
-                        <P>Kohza is a comprehensive digital protection and control platform for creators, coaches, and businesses who sell premium content online.</P>
-                        <P><Strong>Kohza provides:</Strong></P>
-                        <List items={[
-                            "DRM-style access control and encryption for video and digital content",
-                            "Dynamic watermarking and screen capture prevention",
-                            "Real-time piracy detection and monitoring",
-                            "Automated and manual piracy takedowns (DMCA and equivalent legal actions)",
-                            "User authentication and device management",
-                            "Analytics and enforcement reporting"
-                        ]} />
-                        <P>Kohza acts as a service provider and authorized enforcement agent. We do not store, host, or distribute content; we only protect and enforce rights for content you own or are authorized to manage.</P>
-                        <Callout highlight>
-                            <Strong>Important:</Strong> Kohza does not provide legal advice or legal representation. We act in good faith with best efforts to identify and pursue removal of unauthorized content.
-                        </Callout>
-                    </Section>
-
-                    <Section id={2} title="Eligibility & Age Restriction">
-                        <P>You must be at least <Strong>18 years old</Strong> to use Kohza and have the legal capacity to enter into a binding contract.</P>
-                        <P>By using Kohza, you represent and warrant that:</P>
-                        <List items={[
-                            "You are 18 years of age or older",
-                            "You are legally capable of entering into this agreement",
-                            "You will comply with all applicable laws and regulations",
-                            "You have the authority to agree to these Terms on behalf of any organization you represent"
-                        ]} />
-                    </Section>
-
-                    <Section id={3} title="How Kohza Works">
-                        <Subsection id="3.1" title="Service Model">
-                            <P>Kohza provides personalized DRM and anti-piracy services through:</P>
-                            <List items={[
-                                "Direct engagement and onboarding with the Kohza team",
-                                "A secure dashboard for content management and monitoring",
-                                "Automated enforcement workflows",
-                                "Real-time analytics and reporting"
-                            ]} />
-                        </Subsection>
-                        <Subsection id="3.2" title="Your Responsibilities">
-                            <P>When using Kohza, you agree to:</P>
-                            <List items={[
-                                "Provide accurate information about your content and ownership",
-                                "Ensure you own or are legally authorized to protect the content you upload",
-                                "Supply correct URLs, files, or evidence for enforcement actions",
-                                "Ensure all instructions you provide to Kohza are lawful and legitimate",
-                                "Comply with DMCA, copyright laws, and platform terms of service"
-                            ]} />
-                            <P><Strong>You are solely responsible for:</Strong></P>
-                            <List items={[
-                                "The accuracy of infringement claims you submit",
-                                "Ensuring your content does not violate third-party rights or intellectual property",
-                                "Ensuring your content does not violate applicable laws"
-                            ]} />
-                        </Subsection>
-                    </Section>
-
-                    <Section id={4} title="Content Ownership & Rights">
-                        <Subsection id="4.1" title="Your Content">
-                            <P>You retain full ownership of all content you upload to Kohza.</P>
-                            <P>By uploading content, you grant Kohza a non-exclusive, worldwide, royalty-free license to:</P>
-                            <List items={[
-                                "Host, store, and process your content",
-                                "Display and distribute your content for authorized users only",
-                                "Analyze your content for piracy and unauthorized sharing",
-                                "Create watermarks and DRM protections for your content",
-                                "Generate reports and analytics about your content"
-                            ]} />
-                            <P>This license is strictly limited to operating Kohza's protection and enforcement services.</P>
-                        </Subsection>
-                        <Subsection id="4.2" title="Kohza Intellectual Property">
-                            <P>All Kohza software, platform features, branding, user interface, underlying technology, and proprietary systems are owned by Kohza.</P>
-                            <P><Strong>You may not:</Strong></P>
-                            <List items={[
-                                "Copy, reverse-engineer, or attempt to extract Kohza's technology",
-                                "Resell, redistribute, or sublicense Kohza's services",
-                                "Use Kohza's branding, logos, or trade names without written permission"
-                            ]} />
-                        </Subsection>
-                    </Section>
-
-                    <Section id={5} title="Payments, Fees & Billing">
-                        <Subsection id="5.1" title="Fee Structure">
-                            <P>Fees for Kohza services may include:</P>
-                            <List items={[
-                                "Subscription plans — Monthly or annual recurring fees",
-                                "Per-takedown fees — Charges for individual enforcement actions",
-                                "Usage-based fees — Charges based on bandwidth, analytics, or active users",
-                                "Custom service fees — Charges for specialized DRM or enforcement needs"
-                            ]} />
-                        </Subsection>
-                        <Subsection id="5.2" title="Payment Terms">
-                            <List items={[
-                                "All fees are non-refundable unless explicitly agreed in a signed contract",
-                                "Invoices are due within 30 days of issue",
-                                "Kohza may suspend services if payment is more than 15 days overdue",
-                                "Kohza does not store full payment card information"
-                            ]} />
-                        </Subsection>
-                    </Section>
-
-                    <Section id={6} title="Prohibited Uses">
-                        <P>You agree <Strong>not</Strong> to use Kohza for:</P>
-                        <List items={[
-                            "False claims — Submitting false, misleading, or fraudulent infringement claims",
-                            "Unauthorized content — Attempting to remove content you do not own",
-                            "Abuse — Abusing DMCA or copyright takedown systems",
-                            "Harassment — Targeting competitors or individuals maliciously",
-                            "Illegal activity — Violating any applicable laws or regulations",
-                            "Reverse engineering — Attempting to extract Kohza's technology"
-                        ]} />
-                        <Callout>
-                            Kohza reserves the right to reject, suspend, or cancel any request, terminate accounts, and pursue legal action against violators.
-                        </Callout>
-                    </Section>
-
-                    <Section id={7} title="Third-Party Platforms & Services">
-                        <P>Kohza interacts with third-party platforms (YouTube, social media, file hosts, ISPs, etc.) to enforce your rights.</P>
-                        <P><Strong>Important limitations:</Strong></P>
-                        <List items={[
-                            "Kohza has no control over third-party platform policies, decisions, or response times",
-                            "Kohza is not responsible for platform refusals, delays, or content reinstatement",
-                            "Kohza does not guarantee that third parties will comply with takedown requests",
-                            "Enforcement outcomes vary by platform, jurisdiction, and circumstances"
-                        ]} />
-                    </Section>
-
-                    <Section id={8} title="Data, Privacy & Confidentiality">
-                        <Subsection id="8.1" title="Data Collection">
-                            <P>Kohza collects only the data necessary to provide DRM and enforcement services, including content metadata, user access logs, device information, and payment information.</P>
-                        </Subsection>
-                        <Subsection id="8.2" title="Confidentiality">
-                            <P>Kohza treats all client materials as confidential. We may disclose information when required by law, necessary for enforcement, or needed to address security threats. Confidentiality obligations survive termination.</P>
-                        </Subsection>
-                    </Section>
-
-                    <Section id={9} title="Disclaimer of Warranties">
-                        <Callout highlight>
-                            <Strong>KOHZA SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE."</Strong>
-                        </Callout>
-                        <P>To the maximum extent permitted by law, Kohza disclaims all warranties, including:</P>
-                        <List items={[
-                            "No guarantee of complete or permanent content removal",
-                            "Best efforts only — results vary by platform and jurisdiction",
-                            "No specific response time guarantees from third parties",
-                            "No legal advice or representation provided"
-                        ]} />
-                        <P><Strong>You use Kohza at your own risk.</Strong></P>
-                    </Section>
-
-                    <Section id={10} title="Limitation of Liability">
-                        <P>To the maximum extent permitted by law:</P>
-                        <List items={[
-                            "Kohza is not liable for indirect, incidental, or consequential damages",
-                            "Kohza is not liable for lost revenue, profits, or reputational damage",
-                            "Total liability shall not exceed fees paid in the preceding 12 months"
-                        ]} />
-                        <P style={{ fontStyle: 'italic', ...typography.small }}>Some jurisdictions do not allow liability limitations, so the above may not apply to you.</P>
-                    </Section>
-
-                    <Section id={11} title="Indemnification">
-                        <P>You agree to indemnify and hold harmless Kohza from claims arising from:</P>
-                        <List items={[
-                            "False or improper infringement claims you submit",
-                            "Misrepresentation of ownership or authorization",
-                            "Misuse of DRM or takedown services",
-                            "Your violation of these Terms or applicable laws"
-                        ]} />
-                    </Section>
-
-                    <Section id={12} title="Termination & Suspension">
-                        <Subsection id="12.1" title="Termination by Kohza">
-                            <P>Kohza may suspend or terminate your account for Terms violations, illegal activity, non-payment, or at our sole discretion.</P>
-                        </Subsection>
-                        <Subsection id="12.2" title="Effects of Termination">
-                            <P>Upon termination, your access ceases immediately, enforcement activities stop (subject to legal obligations), and you remain liable for incurred fees.</P>
-                        </Subsection>
-                        <Subsection id="12.3" title="Termination by You">
-                            <P>Cancel by contacting <a href="mailto:aryan@kohza.in" style={{ color: 'rgb(55, 53, 47)', textDecoration: 'underline' }}>aryan@kohza.in</a>. You remain liable for fees through the current billing period.</P>
-                        </Subsection>
-                    </Section>
-
-                    <Section id={13} title="Modifications to Terms">
-                        <P>Kohza may update these Terms at any time. <Strong>Continued use constitutes acceptance.</Strong> For significant changes, we will provide notice via email or in-app notification.</P>
-                    </Section>
-
-                    <Section id={14} title="Governing Law & Jurisdiction">
-                        <P>These Terms are governed by the laws of <Strong>India</Strong>. Any disputes shall be resolved exclusively in Indian courts.</P>
-                    </Section>
-
-                    <Section id={15} title="Dispute Resolution & Arbitration">
-                        <P>Before litigation, we encourage good-faith negotiation. Contact <a href="mailto:aryan@kohza.in" style={{ color: 'rgb(55, 53, 47)', textDecoration: 'underline' }}>aryan@kohza.in</a> with a description of the issue. If negotiation fails, disputes may be resolved through binding arbitration under Indian law.</P>
-                    </Section>
-
-                    <Section id={16} title="General Provisions">
-                        <List items={[
-                            "Entire Agreement — These Terms constitute the complete agreement between you and Kohza",
-                            "Severability — Invalid provisions do not affect remaining terms",
-                            "Waiver — No waiver of any breach constitutes waiver of subsequent breaches",
-                            "Assignment — You may not assign without written consent; Kohza may assign freely"
-                        ]} />
-                    </Section>
-
-                    <Section id={17} title="Contact & Support">
-                        <div style={{
-                            padding: '24px',
-                            background: 'rgba(55, 53, 47, 0.024)',
-                            borderRadius: '8px',
-                            marginTop: '16px'
-                        }}>
-                            <p style={{ fontWeight: '500', color: 'rgb(55, 53, 47)', marginBottom: '16px', fontSize: '16px' }}>Kohza</p>
-                            <p style={{ ...typography.body, display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                                <Mail size={15} strokeWidth={1.5} /> <a href="mailto:aryan@kohza.in" style={{ color: 'rgb(55, 53, 47)', textDecoration: 'underline' }}>aryan@kohza.in</a>
-                            </p>
-                            <p style={{ ...typography.body, display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <Globe size={15} strokeWidth={1.5} /> <a href="https://www.kohza.in" style={{ color: 'rgb(55, 53, 47)', textDecoration: 'underline' }}>kohza.in</a>
-                            </p>
-                        </div>
-                    </Section>
-
-                    <Section id={18} title="Acknowledgment & Acceptance">
-                        <Callout>
-                            <Strong>By using Kohza, you acknowledge that:</Strong>
-                            <List items={[
-                                "You have read and understood these Terms",
-                                "You agree to be bound by these Terms",
-                                "You have the legal authority to agree"
-                            ]} />
-                        </Callout>
-                        <P>If you do not agree, you must not use Kohza.</P>
-                    </Section>
-
-                    <Section id={19} title="Effectiveness">
-                        <P>These Terms became effective on February 9, 2026.</P>
-                        <P>For questions, contact <a href="mailto:aryan@kohza.in" style={{ color: 'rgb(55, 53, 47)', textDecoration: 'underline' }}>aryan@kohza.in</a></P>
-                    </Section>
-
-                    {/* Footer */}
-                    <footer style={{
-                        marginTop: '48px',
-                        paddingTop: '24px',
-                        borderTop: '1px solid rgba(55,53,47,0.09)',
-                        textAlign: 'center',
-                        ...typography.small
-                    }}>
-                        © 2026 Kohza. All rights reserved.
-                    </footer>
-                </motion.div>
+                </div>
             </main>
+            <Footer />
         </div>
     );
 }
