@@ -93,7 +93,7 @@ export default function Home() {
     { q: "How does the DRM actually work?", a: "We integrate Google Widevine and Apple FairPlay DRM at the hardware level. The decryption happens in a secure environment on the device (CDM), preventing screen recorders and downloaders from accessing the raw video stream." },
     { q: "Can screen recording be blocked on all devices?", a: "We achieve 100% block rates on mobile devices (Android/iOS) and Safari (macOS). On Windows/Chrome, we use dynamic watermarking and browser fingerprinting to deter capture, as OS-level blocking is restricted by browser architectures." },
     { q: "Is it compatible with my existing LMS?", a: "Yes. Kohza provides a plug-and-play embed code that works with WordPress, Kajabi, Teachable, Moodle, and custom React/Next.js apps. We also offer native SDKs for iOS, Android, and Flutter apps." },
-    { q: "What is the pricing model?", a: "We offer tiered pricing based on bandwidth and storage usage, similar to AWS but with security built-in. Plans start at $199/month for high-ticket course creators. Contact sales for enterprise volume discounts." },
+    { q: "What is the pricing model?", a: "Pricing depends on your specific requirements and scale. We need to review your needs to determine the cost accurately. Please book a strategy call so we can provide a custom quote." },
   ];
 
   const navItems = [
