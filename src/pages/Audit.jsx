@@ -249,7 +249,7 @@ export default function Audit() {
                             <div className="space-y-8 pr-8">
                                 <div>
                                     <div className="flex justify-between mb-2">
-                                        <label className="text-sm font-medium">Course Price</label>
+                                        <label className="text-sm font-medium">Annual Price</label>
                                         <span className="font-mono font-bold">${coursePrice}</span>
                                     </div>
                                     <input

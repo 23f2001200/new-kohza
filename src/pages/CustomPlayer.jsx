@@ -159,9 +159,15 @@ export default function CustomPlayer() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="relative mx-auto mt-12 max-w-6xl"
+                            className="relative mx-auto mt-12 max-w-4xl aspect-[16/9] bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10"
                         >
-                            <img src={playerHeroImg} alt="Kohza Custom Player Interface" className="w-full h-auto object-contain drop-shadow-2xl" />
+                            <iframe
+                                src="https://player.vdocipher.com/v2/?otp=20160313versASE3232BsYIM7587MFYhQ6T4SoDt0xVkfy7nO53bXvUY5k4qV589&playbackInfo=eyJ2aWRlb0lkIjoiOTZjYjk5YmE3MDJhNDdiMDk4ODkxZTk3YzlkNjgwYmEifQ=="
+                                style={{ border: 0, width: '100%', height: '100%' }}
+                                allowFullScreen={true}
+                                allow="encrypted-media"
+                                title="VdoCipher Player"
+                            ></iframe>
                         </motion.div>
                     </motion.div>
                 </div>
